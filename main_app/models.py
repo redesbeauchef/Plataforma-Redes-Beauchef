@@ -20,8 +20,8 @@ class Usuario(AbstractBaseUser):
     foto_perfil = models.ImageField(upload_to='perfil/', null=False)
     perfil_pro = models.TextField(max_length=500)
     fecha_union = models.DateTimeField(auto_now_add=True)
-    ano_ingreso = models.IntegerField(max_length=4)
-    ano_egreso = models.IntegerField(max_length=4)
+    ano_ingreso = models.IntegerField()
+    ano_egreso = models.IntegerField()
     ultima_conex = models.DateTimeField(auto_now=True)
     spam = models.BooleanField()
     eula = models.BooleanField()
@@ -70,4 +70,4 @@ class Entrevista(models.Model):
         (1, "No"),
         (2, "Pendiente")
     )
-    asistencia = models.IntegerField(max_length=1, choices=OPCIONES_ASISTENCIA)
+    asistencia = models.IntegerField(choices=OPCIONES_ASISTENCIA)
