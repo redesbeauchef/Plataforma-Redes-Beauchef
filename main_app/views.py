@@ -21,6 +21,15 @@ class AboutView(TemplateView):
         context['title'] = "Sobre nosotros"
         return context
 
+class Login(TemplateView):
+
+    template_name = 'main_app/login.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['title'] = 'Login'
+        return context
+
 def handler404(request, exception, template_name="404_error.html"):
     response = render_to_response("main_app/404_error.html")
     response.status_code = 404
