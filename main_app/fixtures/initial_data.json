@@ -1,0 +1,107 @@
+[
+  {
+    "model": "main_app.carrera",
+    "pk": 1,
+    "fields": {
+      "plan": "Ingenería Civil en Computación"
+    }
+  },
+  {
+    "model": "main_app.carrera",
+    "pk": 2,
+    "fields": {
+      "plan": "Ingeniería Civil Industrial"
+    }
+  },
+  {
+    "model": "main_app.carrera",
+    "pk": 3,
+    "fields": {
+      "plan": "Ingeniería Civil en Tranportes"
+    }
+  },
+  {
+    "model": "main_app.carrera",
+    "pk": 4,
+    "fields": {
+      "plan": "Ingeniería Civil Hidráulica"
+    }
+  },
+  {
+    "model": "main_app.carrera",
+    "pk": 5,
+    "fields": {
+      "plan": "Ingeniería Civil en Estructuras"
+    }
+  },
+  {
+    "model": "main_app.carrera",
+    "pk": 6,
+    "fields": {
+      "plan": "Ingeniería Civil Química"
+    }
+  },
+  {
+    "model": "main_app.carrera",
+    "pk": 7,
+    "fields": {
+      "plan": "Ingeniería Civil en Biotecnología"
+    }
+  },
+  {
+    "model": "main_app.carrera",
+    "pk": 8,
+    "fields": {
+      "plan": "Ingenería Civil Mecánica"
+    }
+  },
+  {
+    "model": "main_app.carrera",
+    "pk": 9,
+    "fields": {
+      "plan": "Ingeniería Civil Eléctrica"
+    }
+  },
+  {
+    "model": "main_app.carrera",
+    "pk": 10,
+    "fields": {
+      "plan": "Ingeniería Civil Matemática"
+    }
+  },
+  {
+    "model": "main_app.carrera",
+    "pk":11,
+    "fields": {
+      "plan": "Ingeniería Civil de Minas"
+    }
+  },
+  {
+    "model": "main_app.carrera",
+    "pk": 12,
+    "fields": {
+      "plan": "Geología"
+    }
+  },
+  {
+    "model": "main_app.carrera",
+    "pk": 13,
+    "fields": {
+      "plan": "Física"
+    }
+  },
+  {
+    "model": "main_app.carrera",
+    "pk": 14,
+    "fields": {
+      "plan": "Geofísica"
+    }
+  },
+  {
+    "model": "main_app.carrera",
+    "pk": 15,
+    "fields": {
+      "plan": "Astronomía"
+    }
+  }
+]
