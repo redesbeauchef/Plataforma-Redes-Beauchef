@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
+from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, User
 
 
 class Carrera(models.Model):
@@ -10,7 +10,12 @@ class Empleo(models.Model):
     tipo = models.CharField(max_length=200)
 
 
-class Usuario(AbstractBaseUser):
+class Perfil(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Perfiles'
+
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     egresados = models.BooleanField()
     rut = models.CharField(max_length=20)
     email = models.CharField(max_length=500)
@@ -62,7 +67,7 @@ class EmpleoOferta(models.Model):
 
 class Entrevista(models.Model):
     hora_inicio = models.TimeField()
-    entrevistados = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    entrevistados = models.ForeignKey(Perfil, on_delete=models.CASCADE)
     empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
     oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE)
     OPCIONES_ASISTENCIA = (
