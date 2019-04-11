@@ -87,21 +87,21 @@
     "model": "main_app.carrera",
     "pk": 13,
     "fields": {
-      "plan": "Física"
+      "plan": "Magíster en Ciencias de Computación"
     }
   },
   {
     "model": "main_app.carrera",
     "pk": 14,
     "fields": {
-      "plan": "Geofísica"
+      "plan": "Magíster en Tecnologías de Información"
     }
   },
   {
     "model": "main_app.carrera",
     "pk": 15,
     "fields": {
-      "plan": "Astronomía"
+      "plan": "Magíster en Ciencias de la Ingeniería"
     }
   }
 ]
