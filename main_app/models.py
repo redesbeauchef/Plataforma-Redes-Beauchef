@@ -64,9 +64,11 @@ class EspecialidadOferta(models.Model):
     carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE)
     oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE)
 
+
 class EmpleoOferta(models.Model):
     empleo = models.ForeignKey(Empleo, on_delete=models.CASCADE)
     oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE)
+
 
 class Entrevista(models.Model):
     hora_inicio = models.TimeField()
