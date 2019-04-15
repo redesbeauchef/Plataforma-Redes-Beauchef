@@ -1,16 +1,18 @@
-{% extends "main_app/base.html" %}
+{% extends 'main_app/base.html' %}
 
 {% load static %}
 
 {% block specific_css %}
-
     <link rel="stylesheet" type="text/css" href="{% static "css/style_II.css" %}" />
     <link rel="stylesheet" type="text/css" href="{% static "css/responsive2.css" %}" />
-
 {% endblock specific_css %}
 
+{% block header %}
+
+{% endblock header %}
+
 {% block content %}
-       <!-- Top Scroll End -->
+     <!-- Top Scroll End -->
     <!-- Top Header Wrapper Start -->
     <div class="jp_top_header_main_wrapper">
         <div class="container-fluid">
@@ -27,8 +29,8 @@
                     <div class="jp_top_header_right_wrapper">
                         <div class="jp_top_header_right_cont">
                             <ul>
-                                <li><a href="register.html"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
-                                <li><a href="login.html"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>
+                                <li><a href="../../main_app/templates/main_app/register.html"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
+                                <li><a href="../../main_app/templates/main_app/login.html"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>
                             </ul>
                         </div>
                         <div class="jp_top_header_right__social_cont">
@@ -55,7 +57,7 @@
                     <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-xs hidden-sm full_width">
                         <div class="gc_header_wrapper">
                             <div class="gc_logo">
-                                <a href="index.html"><img src="{% static 'images/header/logo2.png' %}" alt="Logo" title="Job Pro" class="img-responsive"></a>
+                                <a href="../../main_app/templates/main_app/index.html"><img src="{% static 'images/header/logo2.png' %}" alt="Logo" title="Job Pro" class="img-responsive"></a>
                             </div>
                         </div>
                     </div>
@@ -80,20 +82,20 @@
                                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Home&nbsp;<i class="fa fa-angle-down"></i></a>
                                         <!-- mega menu start -->
                                         <ul>
-                                            <li class="parent"><a href="index.html">Home1</a></li>
-                                            <li class="parent"><a href="index_II.html">Home2</a></li>
-                                            <li class="parent"><a href="index_map.html">Home3</a></li>
-                                            <li class="parent"><a href="index_iv.html">Home4</a></li>
-                                            <li class="parent"><a href="index_v.html">Home5</a></li>
-                                            <li class="parent"><a href="index_vi.html">Home6</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/index.html">Home1</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/index_II.html">Home2</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/index_map.html">Home3</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/index_iv.html">Home4</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/index_v.html">Home5</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/index_vi.html">Home6</a></li>
                                         </ul>
                                     </li>
                                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Job&nbsp;<i class="fa fa-angle-down"></i></a>
                                         <!-- mega menu start -->
                                         <ul>
-                                            <li class="parent"><a href="listing_left.html">Listing-Left</a></li>
-                                            <li class="parent"><a href="listing_right.html">Listing-Right</a></li>
-                                            <li class="parent"><a href="listing_single.html">Listing-Single</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/listing_left.html">Listing-Left</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/listing_right.html">Listing-Right</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/listing_single.html">Listing-Single</a></li>
 
                                         </ul>
                                     </li>
@@ -101,10 +103,10 @@
                                         <!-- sub menu start -->
                                         <ul>
 
-                                            <li class="parent"><a href="company_listing.html">Company-Listing</a></li>
-                                            <li class="parent"><a href="company_listing_single.html">Company-Single</a></li>
-                                            <li class="parent"><a href="candidate_listing.html">candidate-Listing</a></li>
-                                            <li class="parent"><a href="../../../accounts/templates/candidate_profile.html">candidate-Profile</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/company_listing.html">Company-Listing</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/company_listing_single.html">Company-Single</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/candidate_listing.html">candidate-Listing</a></li>
+                                            <li class="parent"><a href="candidate_profile.html">candidate-Profile</a></li>
 
 
                                         </ul>
@@ -113,25 +115,25 @@
 									<li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Pages&nbsp;<i class="fa fa-angle-down"></i></a>
                                         <!-- mega menu start -->
                                         <ul>
-                                             <li class="parent"><a href="about.html">About-Us</a></li>
-                                            <li class="parent"><a href="404_error.html">404</a></li>
-                                            <li class="parent"><a href="add_postin.html">Add-Posting</a></li>
-											 <li class="parent"><a href="login.html">Login</a></li>
-                                            <li class="parent"><a href="register.html">Register</a></li>
-                                            <li class="parent"><a href="pricing.html">Pricing</a></li>
+                                             <li class="parent"><a href="../../main_app/templates/main_app/about.html">About-Us</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/404_error.html">404</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/add_postin.html">Add-Posting</a></li>
+											 <li class="parent"><a href="../../main_app/templates/main_app/login.html">Login</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/register.html">Register</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/pricing.html">Pricing</a></li>
                                         </ul>
                                     </li>
                                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Blog&nbsp;<i class="fa fa-angle-down"></i></a>
                                         <!-- mega menu start -->
                                         <ul>
-                                            <li class="parent"><a href="blog_left.html">Blog-Left</a></li>
-                                            <li class="parent"><a href="blog_right.html">Blog-Right</a></li>
-                                            <li class="parent"><a href="blog_single_left.html">Blog-Single-Left</a></li>
-                                            <li class="parent"><a href="blog_single_right.html">Blog-Single-Right</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/blog_left.html">Blog-Left</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/blog_right.html">Blog-Right</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/blog_single_left.html">Blog-Single-Left</a></li>
+                                            <li class="parent"><a href="../../main_app/templates/main_app/blog_single_right.html">Blog-Single-Right</a></li>
 
                                         </ul>
                                     </li>
-                                    <li class="gc_main_navigation parent"><a href="contact.html" class="gc_main_navigation">Contact</a></li>
+                                    <li class="gc_main_navigation parent"><a href="../../main_app/templates/main_app/contact.html" class="gc_main_navigation">Contact</a></li>
                                 </ul>
                             </div>
                             <!-- mainmenu end -->
@@ -141,7 +143,7 @@
                                     <div class="row">
                                         <div class="col-xs-6 col-sm-6">
                                             <div class="gc_logo">
-                                                <a href="index.html"><img src="images/header/logo2.png" alt="Logo" title="Grace Church"></a>
+                                                <a href="../../main_app/templates/main_app/index.html"><img src="{% static 'images/header/logo2.png' %}" alt="Logo" title="Grace Church"></a>
                                             </div>
                                         </div>
                                         <div class="col-xs-6 col-sm-6">
@@ -163,12 +165,12 @@
 
                                                             <ul class="cd-secondary-dropdown is-hidden">
                                                                 <li class="go-back"><a href="#0">Menu</a></li>
-                                                                <li><a href="index.html">Home1</a></li>
-																<li><a href="index_II.html">Home2</a></li>
-																<li><a href="index_map.html">Home3</a></li>
-																<li><a href="index_iv.html">Home4</a></li>
-																<li><a href="index_v.html">Home5</a></li>
-																<li><a href="index_vi.html">Home6</a></li>
+                                                                <li><a href="../../main_app/templates/main_app/index.html">Home1</a></li>
+																<li><a href="../../main_app/templates/main_app/index_II.html">Home2</a></li>
+																<li><a href="../../main_app/templates/main_app/index_map.html">Home3</a></li>
+																<li><a href="../../main_app/templates/main_app/index_iv.html">Home4</a></li>
+																<li><a href="../../main_app/templates/main_app/index_v.html">Home5</a></li>
+																<li><a href="../../main_app/templates/main_app/index_vi.html">Home6</a></li>
                                                                 <!-- .has-children -->
 
                                                             </ul>
@@ -183,17 +185,17 @@
                                                             <ul class="cd-secondary-dropdown is-hidden">
                                                                 <li class="go-back"><a href="#0">Menu</a></li>
                                                                 <li>
-                                                                    <a href="listing_left.html">listing-Left</a>
+                                                                    <a href="../../main_app/templates/main_app/listing_left.html">listing-Left</a>
                                                                 </li>
                                                                 <!-- .has-children -->
 
                                                                 <li>
-                                                                    <a href="listing_right.html">listing-Right</a>
+                                                                    <a href="../../main_app/templates/main_app/listing_right.html">listing-Right</a>
                                                                 </li>
                                                                 <!-- .has-children -->
 
                                                                 <li>
-                                                                    <a href="listing_single.html">listing-Single</a>
+                                                                    <a href="../../main_app/templates/main_app/listing_single.html">listing-Single</a>
                                                                 </li>
                                                                 <!-- .has-children -->
 
@@ -206,10 +208,10 @@
 
                                                             <ul class="cd-secondary-dropdown is-hidden">
                                                                 <li class="go-back"><a href="#0">Menu</a></li>
-																<li><a href="company_listing.html">Company-Listing</a></li>
-																<li><a href="company_listing_single.html">Company-Single</a></li>
-																<li><a href="candidate_listing.html">candidate-Listing</a></li>
-																<li><a href="../../../accounts/templates/candidate_profile.html">candidate-Profile</a></li>
+																<li><a href="../../main_app/templates/main_app/company_listing.html">Company-Listing</a></li>
+																<li><a href="../../main_app/templates/main_app/company_listing_single.html">Company-Single</a></li>
+																<li><a href="../../main_app/templates/main_app/candidate_listing.html">candidate-Listing</a></li>
+																<li><a href="candidate_profile.html">candidate-Profile</a></li>
                                                                 <!-- .has-children -->
 
                                                             </ul>
@@ -220,12 +222,12 @@
 
                                                             <ul class="cd-secondary-dropdown is-hidden">
                                                                 <li class="go-back"><a href="#0">Menu</a></li>
-                                                                <li><a href="about.html">About-Us</a></li>
-																<li><a href="404_error.html">404</a></li>
-																<li><a href="add_postin.html">Add-Posting</a></li>
-																<li><a href="login.html">Login</a></li>
-																<li><a href="register.html">Register</a></li>
-																<li><a href="pricing.html">Pricing</a></li>
+                                                                <li><a href="../../main_app/templates/main_app/about.html">About-Us</a></li>
+																<li><a href="../../main_app/templates/main_app/404_error.html">404</a></li>
+																<li><a href="../../main_app/templates/main_app/add_postin.html">Add-Posting</a></li>
+																<li><a href="../../main_app/templates/main_app/login.html">Login</a></li>
+																<li><a href="../../main_app/templates/main_app/register.html">Register</a></li>
+																<li><a href="../../main_app/templates/main_app/pricing.html">Pricing</a></li>
                                                                 <!-- .has-children -->
 
                                                             </ul>
@@ -238,22 +240,22 @@
                                                             <ul class="cd-secondary-dropdown is-hidden">
                                                                 <li class="go-back"><a href="#0">Menu</a></li>
                                                                 <li>
-                                                                    <a href="blog_left.html">Blog-Left</a>
+                                                                    <a href="../../main_app/templates/main_app/blog_left.html">Blog-Left</a>
                                                                 </li>
                                                                 <!-- .has-children -->
 
                                                                 <li>
-                                                                    <a href="blog_right.html">Blog-Right</a>
+                                                                    <a href="../../main_app/templates/main_app/blog_right.html">Blog-Right</a>
                                                                 </li>
                                                                 <!-- .has-children -->
 
                                                                 <li>
-                                                                    <a href="blog_single_left.html">Blog-Single-Left</a>
+                                                                    <a href="../../main_app/templates/main_app/blog_single_left.html">Blog-Single-Left</a>
                                                                 </li>
                                                                 <!-- .has-children -->
 
                                                                 <li>
-                                                                    <a href="blog_single_right.html">Blog-Single-Left</a>
+                                                                    <a href="../../main_app/templates/main_app/blog_single_right.html">Blog-Single-Left</a>
                                                                 </li>
                                                                 <!-- .has-children -->
 
@@ -262,13 +264,13 @@
                                                         </li>
                                                         <!-- .has-children -->
                                                         <li>
-                                                            <a href="contact.html">Contact</a>
+                                                            <a href="../../main_app/templates/main_app/contact.html">Contact</a>
                                                         </li>
 														<li>
-                                                            <a href="register.html">Sign Up</a>
+                                                            <a href="../../main_app/templates/main_app/register.html">Sign Up</a>
                                                         </li>
 														<li>
-                                                            <a href="login.html">Login</a>
+                                                            <a href="../../main_app/templates/main_app/login.html">Login</a>
                                                         </li>
 
                                                     </ul>
@@ -291,7 +293,7 @@
                     <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">
                         <div class="jp_navi_right_btn_wrapper">
                             <ul>
-                                <li><a href="add_postin.html"><i class="fa fa-plus-circle"></i>&nbsp; Post a job</a></li>
+                                <li><a href="../../main_app/templates/main_app/add_postin.html"><i class="fa fa-plus-circle"></i>&nbsp; Post a job</a></li>
                             </ul>
                         </div>
                     </div>
@@ -308,14 +310,14 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="jp_tittle_heading_wrapper">
                         <div class="jp_tittle_heading">
-                            <h2>Login</h2>
+                            <h2>candidate-Profile</h2>
                         </div>
                         <div class="jp_tittle_breadcrumb_main_wrapper">
                             <div class="jp_tittle_breadcrumb_wrapper">
                                 <ul>
                                     <li><a href="#">Home</a> <i class="fa fa-angle-right"></i></li>
                                     <li><a href="#">Pages</a> <i class="fa fa-angle-right"></i></li>
-                                    <li>Login</li>
+                                    <li>candidate-Profile</li>
                                 </ul>
                             </div>
                         </div>
@@ -325,62 +327,179 @@
         </div>
     </div>
     <!-- jp Tittle Wrapper End -->
+    <!-- jp profile Wrapper Start -->
+	<div class="jp_cp_profile_main_wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+					<div class="jp_cp_left_side_wrapper">
+						<div class="jp_cp_left_pro_wallpaper">
+							<img src="{% static 'images/content/cp1.png' %}" alt="profile_img">
+							<h2>Farhan Shaikh</h2>
+							<p>UI/UX Designer in Dewas</p>
+							<ul>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+							</ul>
+						</div>
+						<div class="jp_cp_rd_wrapper">
+							<ul>
+								<li><a href="#"><i class="fa fa-download"></i> &nbsp;Download Resume</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i> &nbsp;Contact candidate</a></li>
+							</ul>
+						</div>
+					</div>
+                    <div class="jp_add_resume_wrapper jp_job_location_wrapper jp_cp_left_ad_res">
+                        <div class="jp_add_resume_img_overlay"></div>
+                        <div class="jp_add_resume_cont">
+                            <img src="{% static 'images/content/resume_logo.png' %}" alt="logo" />
+                            <h4>Get Best Matched Jobs On your Email. Add Resume NOW!</h4>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;ADD RESUME</a></li>
+                            </ul>
+                        </div>
+                    </div>
+				</div>
+				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+					<div class="jp_cp_right_side_wrapper">
+						<div class="jp_cp_right_side_inner_wrapper">
+							<h2>PERSONAL DETAILS</h2>
+							<table>
+                                <tbody>
+                                    <tr>
+                                        <td class="td-w25">Full Name</td>
+                                        <td class="td-w10">:</td>
+                                        <td class="td-w65">Farhan Shaikh</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-w25">Father's Name</td>
+                                        <td class="td-w10">:</td>
+                                        <td class="td-w65">------</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-w25">Address</td>
+                                        <td class="td-w10">:</td>
+                                        <td class="td-w65">Street 110-B Kalani Bag, Dewas, M.P. INDIA</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-w25">Zip Code</td>
+                                        <td class="td-w10">:</td>
+                                        <td class="td-w65">12345</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-w25">Phone</td>
+                                        <td class="td-w10">:</td>
+                                        <td class="td-w65">+0 123456789 , +0 123456789</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-w25">Email</td>
+                                        <td class="td-w10">:</td>
+                                        <td class="td-w65">support@example.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-w25">Website</td>
+                                        <td class="td-w10">:</td>
+                                        <td class="td-w65">http://example.com</td>
+                                    </tr>
 
-	<!-- jp login wrapper start -->
-	<div class="login_section">
-		<!-- login_form_wrapper -->
-		<div class="login_form_wrapper">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<!-- login_wrapper -->
-						<h1>LOGIN TO YOUR ACCOUNT</h1>
-						<div class="login_wrapper">
-							<div class="row">
-								<div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
-									<a href="#" class="btn btn-primary"> <span>Login with Facebook</span> <i class="fa fa-facebook"></i> </a>
-								</div>
-								<div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
-									<a href="#" class="btn btn-primary google-plus"> Login  with Google <i class="fa fa-google-plus"></i> </a>
-								</div>
-							</div>
-							<h2>or</h2>
-							<div class="formsix-pos">
-								<div class="form-group i-email">
-									<input type="email" class="form-control" required="" id="email2" placeholder="Username*">
-								</div>
-							</div>
-							<div class="formsix-e">
-								<div class="form-group i-password">
-									<input type="password" class="form-control" required="" id="password2" placeholder="Password *">
-								</div>
-							</div>
-							<div class="login_remember_box">
-								<label class="control control--checkbox">Remember me
-									<input type="checkbox">
-									<span class="control__indicator"></span>
-								</label>
-								<a href="#" class="forget_password">
-									Forgot Password
-								</a>
-							</div>
-							<div class="login_btn_wrapper">
-								<a href="#" class="btn btn-primary login_btn"> Login </a>
-							</div>
-							<div class="login_message">
-								<p>Don’t have an account ? <a href="#"> Register Now </a> </p>
+                                </tbody>
+                            </table>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+							<div class="jp_cp_accor_heading_wrapper">
+								<h2>Education</h2>
+								<p>Proin gravida nibh vel velit quet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulpuate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt.</p>
 							</div>
 						</div>
-						<p>In case you are using a public/shared computer we recommend that
-you logout to prevent any un-authorized access to your account</p>
-						<!-- /.login_wrapper-->
+						<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+							<div class="accordion_wrapper abt_page_2_wrapper">
+								<div class="panel-group" id="accordion_threeLeft">
+
+
+									<!-- /.panel-default -->
+									<div class="panel panel-default">
+										<div class="panel-heading bell">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-parent="#accordion_threeLeft" href="#collapseTwentyLeftThree" aria-expanded="false">
+										DIPLOMA IN COMPUTER
+									  </a>
+											</h4>
+										</div>
+										<div id="collapseTwentyLeftThree" class="panel-collapse collapse" aria-expanded="false" role="tablist">
+											<div class="panel-body">
+												Praesent in nisl egestas mauris aliquam luctus. Ut auctor faucibus orci, nec semper purus ultrices idorbi nec lorem risus orbi vitae felis gravida Pellentesque id eros quis massa convallis feugiat eu quis urna.
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading bell">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-parent="#accordion_threeLeft" href="#collapseTwentyLeftThree2" aria-expanded="false">
+										HIGHER SECONDRY EDUCATION
+									  </a>
+											</h4>
+										</div>
+										<div id="collapseTwentyLeftThree2" class="panel-collapse collapse" aria-expanded="false" role="tablist">
+											<div class="panel-body">
+												Praesent in nisl egestas mauris aliquam luctus. Ut auctor faucibus orci, nec semper purus ultrices idorbi nec lorem risus orbi vitae felis gravida Pellentesque id eros quis massa convallis feugiat eu quis urna.
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading bell">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-parent="#accordion_threeLeft" href="#collapseTwentyLeftThree3" aria-expanded="false">
+										HIGH SCHOOL DEGREE
+									  </a>
+											</h4>
+										</div>
+										<div id="collapseTwentyLeftThree3" class="panel-collapse collapse" aria-expanded="false" role="tablist">
+											<div class="panel-body">
+												Praesent in nisl egestas mauris aliquam luctus. Ut auctor faucibus orci, nec semper purus ultrices idorbi nec lorem risus orbi vitae felis gravida Pellentesque id eros quis massa convallis feugiat eu quis urna.
+											</div>
+										</div>
+									</div>
+									<!-- /.panel-default -->
+								</div>
+								<!--end of /.panel-group-->
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- /.login_form_wrapper-->
 	</div>
-	<!-- jp login wrapper end -->
+    <!-- jp profile Wrapper End -->
+	<!-- jp downlord Wrapper Start -->
+    <div class="jp_downlord_main_wrapper">
+        <div class="jp_downlord_img_overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hidden-sm hidden-xs">
+                    <div class="jp_down_mob_img_wrapper">
+                        <img src="{% static 'images/content/mobail.png' %}" alt="mobail_img" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="ss_download_wrapper_details">
+                        <h1><span>Download</span><br>Job Portal App Now!</h1>
+                        <p>Fast, Simple & Delightful. All it takes is 30 seconds to Download.</p>
+                        <a href="#" class="ss_appstore"><span><i class="fa fa-apple" aria-hidden="true"></i></span> App Store</a>
+                        <a href="#" class="ss_playstore"><span><i class="fa fa-android" aria-hidden="true"></i></span> Play Store</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 visible-sm visible-xs">
+                    <div class="jp_down_mob_img_wrapper">
+                        <img src="{% static 'images/content/mobail.png' %}" class="img-responsive" alt="mobail_img" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jp downlord Wrapper End -->
 	<!-- jp Newsletter Wrapper Start -->
     <div class="jp_main_footer_img_wrapper">
         <div class="jp_newsletter_img_overlay_wrapper"></div>
@@ -503,21 +622,19 @@ you logout to prevent any un-authorized access to your account</p>
             </div>
         </div>
     </div>
-{% endblock content %}
+{% endblock content%}
 
 {% block specific_js %}
     <script src="{% static "js/jquery.magnific-popup.js" %}"></script>
     <script src="{% static "js/custom_II.js" %}"></script>
 {% endblock specific_js %}
-
-
 {#<!DOCTYPE html>#}
-{#<!--#}
+{#<!-- #}
 {#Template Name: Job Pro#}
 {#Version: 1.0.0#}
-{#Author:#}
-{#Website:#}
-{#Purchase:#}
+{#Author: #}
+{#Website: #}
+{#Purchase: #}
 {#-->#}
 {#<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->#}
 {#<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->#}
@@ -527,7 +644,7 @@ you logout to prevent any un-authorized access to your account</p>
 {##}
 {#<head>#}
 {#    <meta charset="utf-8" />#}
-{#    <title></title>#}
+{#    <title>candidate-Profile</title>#}
 {#    <meta content="width=device-width, initial-scale=1.0" name="viewport" />#}
 {#    <meta name="description" content="Job Pro" />#}
 {#    <meta name="keywords" content="Job Pro" />#}
@@ -571,8 +688,8 @@ you logout to prevent any un-authorized access to your account</p>
 {#                    <div class="jp_top_header_right_wrapper">#}
 {#                        <div class="jp_top_header_right_cont">#}
 {#                            <ul>#}
-{#                                <li><a href="register.html"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>#}
-{#                                <li><a href="login.html"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>#}
+{#                                <li><a href="../../main_app/templates/main_app/register.html"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>#}
+{#                                <li><a href="../../main_app/templates/main_app/login.html"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>#}
 {#                            </ul>#}
 {#                        </div>#}
 {#                        <div class="jp_top_header_right__social_cont">#}
@@ -599,7 +716,7 @@ you logout to prevent any un-authorized access to your account</p>
 {#                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-xs hidden-sm full_width">#}
 {#                        <div class="gc_header_wrapper">#}
 {#                            <div class="gc_logo">#}
-{#                                <a href="index.html"><img src="images/header/logo2.png" alt="Logo" title="Job Pro" class="img-responsive"></a>#}
+{#                                <a href="../../main_app/templates/main_app/index.html"><img src="images/header/logo2.png" alt="Logo" title="Job Pro" class="img-responsive"></a>#}
 {#                            </div>#}
 {#                        </div>#}
 {#                    </div>#}
@@ -624,58 +741,58 @@ you logout to prevent any un-authorized access to your account</p>
 {#                                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Home&nbsp;<i class="fa fa-angle-down"></i></a>#}
 {#                                        <!-- mega menu start -->#}
 {#                                        <ul>#}
-{#                                            <li class="parent"><a href="index.html">Home1</a></li>#}
-{#                                            <li class="parent"><a href="index_II.html">Home2</a></li>#}
-{#                                            <li class="parent"><a href="index_map.html">Home3</a></li>#}
-{#                                            <li class="parent"><a href="index_iv.html">Home4</a></li>#}
-{#                                            <li class="parent"><a href="index_v.html">Home5</a></li>#}
-{#                                            <li class="parent"><a href="index_vi.html">Home6</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/index.html">Home1</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/index_II.html">Home2</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/index_map.html">Home3</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/index_iv.html">Home4</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/index_v.html">Home5</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/index_vi.html">Home6</a></li>#}
 {#                                        </ul>#}
 {#                                    </li>#}
 {#                                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Job&nbsp;<i class="fa fa-angle-down"></i></a>#}
 {#                                        <!-- mega menu start -->#}
 {#                                        <ul>#}
-{#                                            <li class="parent"><a href="listing_left.html">Listing-Left</a></li>#}
-{#                                            <li class="parent"><a href="listing_right.html">Listing-Right</a></li>#}
-{#                                            <li class="parent"><a href="listing_single.html">Listing-Single</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/listing_left.html">Listing-Left</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/listing_right.html">Listing-Right</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/listing_single.html">Listing-Single</a></li>#}
 {##}
 {#                                        </ul>#}
 {#                                    </li>#}
 {#                                    <li class="parent gc_main_navigation"><a href="#" class="gc_main_navigation">candidates &nbsp;<i class="fa fa-angle-down"></i></a>#}
 {#                                        <!-- sub menu start -->#}
 {#                                        <ul>#}
-{##}
-{#                                            <li class="parent"><a href="company_listing.html">Company-Listing</a></li>#}
-{#                                            <li class="parent"><a href="company_listing_single.html">Company-Single</a></li>#}
-{#                                            <li class="parent"><a href="candidate_listing.html">candidate-Listing</a></li>#}
+{#                                           #}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/company_listing.html">Company-Listing</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/company_listing_single.html">Company-Single</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/candidate_listing.html">candidate-Listing</a></li>#}
 {#                                            <li class="parent"><a href="candidate_profile.html">candidate-Profile</a></li>#}
-{##}
-{##}
+{#                                           #}
+{#                                               #}
 {#                                        </ul>#}
 {#                                        <!-- sub menu end -->#}
 {#                                    </li>#}
 {#									<li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Pages&nbsp;<i class="fa fa-angle-down"></i></a>#}
 {#                                        <!-- mega menu start -->#}
 {#                                        <ul>#}
-{#                                             <li class="parent"><a href="about.html">About-Us</a></li>#}
-{#                                            <li class="parent"><a href="404_error.html">404</a></li>#}
-{#                                            <li class="parent"><a href="add_postin.html">Add-Posting</a></li>#}
-{#											 <li class="parent"><a href="login.html">Login</a></li>#}
-{#                                            <li class="parent"><a href="register.html">Register</a></li>#}
-{#                                            <li class="parent"><a href="pricing.html">Pricing</a></li>#}
+{#                                             <li class="parent"><a href="../../main_app/templates/main_app/about.html">About-Us</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/404_error.html">404</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/add_postin.html">Add-Posting</a></li>#}
+{#											 <li class="parent"><a href="../../main_app/templates/main_app/login.html">Login</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/register.html">Register</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/pricing.html">Pricing</a></li>#}
 {#                                        </ul>#}
 {#                                    </li>#}
 {#                                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Blog&nbsp;<i class="fa fa-angle-down"></i></a>#}
 {#                                        <!-- mega menu start -->#}
 {#                                        <ul>#}
-{#                                            <li class="parent"><a href="blog_left.html">Blog-Left</a></li>#}
-{#                                            <li class="parent"><a href="blog_right.html">Blog-Right</a></li>#}
-{#                                            <li class="parent"><a href="blog_single_left.html">Blog-Single-Left</a></li>#}
-{#                                            <li class="parent"><a href="blog_single_right.html">Blog-Single-Right</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/blog_left.html">Blog-Left</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/blog_right.html">Blog-Right</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/blog_single_left.html">Blog-Single-Left</a></li>#}
+{#                                            <li class="parent"><a href="../../main_app/templates/main_app/blog_single_right.html">Blog-Single-Right</a></li>#}
 {##}
 {#                                        </ul>#}
 {#                                    </li>#}
-{#                                    <li class="gc_main_navigation parent"><a href="contact.html" class="gc_main_navigation">Contact</a></li>#}
+{#                                    <li class="gc_main_navigation parent"><a href="../../main_app/templates/main_app/contact.html" class="gc_main_navigation">Contact</a></li>#}
 {#                                </ul>#}
 {#                            </div>#}
 {#                            <!-- mainmenu end -->#}
@@ -685,7 +802,7 @@ you logout to prevent any un-authorized access to your account</p>
 {#                                    <div class="row">#}
 {#                                        <div class="col-xs-6 col-sm-6">#}
 {#                                            <div class="gc_logo">#}
-{#                                                <a href="index.html"><img src="images/header/logo2.png" alt="Logo" title="Grace Church"></a>#}
+{#                                                <a href="../../main_app/templates/main_app/index.html"><img src="images/header/logo2.png" alt="Logo" title="Grace Church"></a>#}
 {#                                            </div>#}
 {#                                        </div>#}
 {#                                        <div class="col-xs-6 col-sm-6">#}
@@ -707,12 +824,12 @@ you logout to prevent any un-authorized access to your account</p>
 {##}
 {#                                                            <ul class="cd-secondary-dropdown is-hidden">#}
 {#                                                                <li class="go-back"><a href="#0">Menu</a></li>#}
-{#                                                                <li><a href="index.html">Home1</a></li>#}
-{#																<li><a href="index_II.html">Home2</a></li>#}
-{#																<li><a href="index_map.html">Home3</a></li>#}
-{#																<li><a href="index_iv.html">Home4</a></li>#}
-{#																<li><a href="index_v.html">Home5</a></li>#}
-{#																<li><a href="index_vi.html">Home6</a></li>#}
+{#                                                                <li><a href="../../main_app/templates/main_app/index.html">Home1</a></li>#}
+{#																<li><a href="../../main_app/templates/main_app/index_II.html">Home2</a></li>#}
+{#																<li><a href="../../main_app/templates/main_app/index_map.html">Home3</a></li>#}
+{#																<li><a href="../../main_app/templates/main_app/index_iv.html">Home4</a></li>#}
+{#																<li><a href="../../main_app/templates/main_app/index_v.html">Home5</a></li>#}
+{#																<li><a href="../../main_app/templates/main_app/index_vi.html">Home6</a></li>#}
 {#                                                                <!-- .has-children -->#}
 {##}
 {#                                                            </ul>#}
@@ -727,17 +844,17 @@ you logout to prevent any un-authorized access to your account</p>
 {#                                                            <ul class="cd-secondary-dropdown is-hidden">#}
 {#                                                                <li class="go-back"><a href="#0">Menu</a></li>#}
 {#                                                                <li>#}
-{#                                                                    <a href="listing_left.html">listing-Left</a>#}
+{#                                                                    <a href="../../main_app/templates/main_app/listing_left.html">listing-Left</a>#}
 {#                                                                </li>#}
 {#                                                                <!-- .has-children -->#}
 {##}
 {#                                                                <li>#}
-{#                                                                    <a href="listing_right.html">listing-Right</a>#}
+{#                                                                    <a href="../../main_app/templates/main_app/listing_right.html">listing-Right</a>#}
 {#                                                                </li>#}
 {#                                                                <!-- .has-children -->#}
 {##}
 {#                                                                <li>#}
-{#                                                                    <a href="listing_single.html">listing-Single</a>#}
+{#                                                                    <a href="../../main_app/templates/main_app/listing_single.html">listing-Single</a>#}
 {#                                                                </li>#}
 {#                                                                <!-- .has-children -->#}
 {##}
@@ -750,9 +867,9 @@ you logout to prevent any un-authorized access to your account</p>
 {##}
 {#                                                            <ul class="cd-secondary-dropdown is-hidden">#}
 {#                                                                <li class="go-back"><a href="#0">Menu</a></li>#}
-{#																<li><a href="company_listing.html">Company-Listing</a></li>#}
-{#																<li><a href="company_listing_single.html">Company-Single</a></li>#}
-{#																<li><a href="candidate_listing.html">candidate-Listing</a></li>#}
+{#																<li><a href="../../main_app/templates/main_app/company_listing.html">Company-Listing</a></li>#}
+{#																<li><a href="../../main_app/templates/main_app/company_listing_single.html">Company-Single</a></li>#}
+{#																<li><a href="../../main_app/templates/main_app/candidate_listing.html">candidate-Listing</a></li>#}
 {#																<li><a href="candidate_profile.html">candidate-Profile</a></li>#}
 {#                                                                <!-- .has-children -->#}
 {##}
@@ -764,12 +881,12 @@ you logout to prevent any un-authorized access to your account</p>
 {##}
 {#                                                            <ul class="cd-secondary-dropdown is-hidden">#}
 {#                                                                <li class="go-back"><a href="#0">Menu</a></li>#}
-{#                                                                <li><a href="about.html">About-Us</a></li>#}
-{#																<li><a href="404_error.html">404</a></li>#}
-{#																<li><a href="add_postin.html">Add-Posting</a></li>#}
-{#																<li><a href="login.html">Login</a></li>#}
-{#																<li><a href="register.html">Register</a></li>#}
-{#																<li><a href="pricing.html">Pricing</a></li>#}
+{#                                                                <li><a href="../../main_app/templates/main_app/about.html">About-Us</a></li>#}
+{#																<li><a href="../../main_app/templates/main_app/404_error.html">404</a></li>#}
+{#																<li><a href="../../main_app/templates/main_app/add_postin.html">Add-Posting</a></li>#}
+{#																<li><a href="../../main_app/templates/main_app/login.html">Login</a></li>#}
+{#																<li><a href="../../main_app/templates/main_app/register.html">Register</a></li>#}
+{#																<li><a href="../../main_app/templates/main_app/pricing.html">Pricing</a></li>#}
 {#                                                                <!-- .has-children -->#}
 {##}
 {#                                                            </ul>#}
@@ -782,22 +899,22 @@ you logout to prevent any un-authorized access to your account</p>
 {#                                                            <ul class="cd-secondary-dropdown is-hidden">#}
 {#                                                                <li class="go-back"><a href="#0">Menu</a></li>#}
 {#                                                                <li>#}
-{#                                                                    <a href="blog_left.html">Blog-Left</a>#}
+{#                                                                    <a href="../../main_app/templates/main_app/blog_left.html">Blog-Left</a>#}
 {#                                                                </li>#}
 {#                                                                <!-- .has-children -->#}
 {##}
 {#                                                                <li>#}
-{#                                                                    <a href="blog_right.html">Blog-Right</a>#}
+{#                                                                    <a href="../../main_app/templates/main_app/blog_right.html">Blog-Right</a>#}
 {#                                                                </li>#}
 {#                                                                <!-- .has-children -->#}
 {##}
 {#                                                                <li>#}
-{#                                                                    <a href="blog_single_left.html">Blog-Single-Left</a>#}
+{#                                                                    <a href="../../main_app/templates/main_app/blog_single_left.html">Blog-Single-Left</a>#}
 {#                                                                </li>#}
 {#                                                                <!-- .has-children -->#}
 {##}
 {#                                                                <li>#}
-{#                                                                    <a href="blog_single_right.html">Blog-Single-Left</a>#}
+{#                                                                    <a href="../../main_app/templates/main_app/blog_single_right.html">Blog-Single-Left</a>#}
 {#                                                                </li>#}
 {#                                                                <!-- .has-children -->#}
 {##}
@@ -806,13 +923,13 @@ you logout to prevent any un-authorized access to your account</p>
 {#                                                        </li>#}
 {#                                                        <!-- .has-children -->#}
 {#                                                        <li>#}
-{#                                                            <a href="contact.html">Contact</a>#}
+{#                                                            <a href="../../main_app/templates/main_app/contact.html">Contact</a>#}
 {#                                                        </li>#}
 {#														<li>#}
-{#                                                            <a href="register.html">Sign Up</a>#}
+{#                                                            <a href="../../main_app/templates/main_app/register.html">Sign Up</a>#}
 {#                                                        </li>#}
 {#														<li>#}
-{#                                                            <a href="login.html">Login</a>#}
+{#                                                            <a href="../../main_app/templates/main_app/login.html">Login</a>#}
 {#                                                        </li>#}
 {##}
 {#                                                    </ul>#}
@@ -835,7 +952,7 @@ you logout to prevent any un-authorized access to your account</p>
 {#                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">#}
 {#                        <div class="jp_navi_right_btn_wrapper">#}
 {#                            <ul>#}
-{#                                <li><a href="add_postin.html"><i class="fa fa-plus-circle"></i>&nbsp; Post a job</a></li>#}
+{#                                <li><a href="../../main_app/templates/main_app/add_postin.html"><i class="fa fa-plus-circle"></i>&nbsp; Post a job</a></li>#}
 {#                            </ul>#}
 {#                        </div>#}
 {#                    </div>#}
@@ -852,14 +969,14 @@ you logout to prevent any un-authorized access to your account</p>
 {#                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">#}
 {#                    <div class="jp_tittle_heading_wrapper">#}
 {#                        <div class="jp_tittle_heading">#}
-{#                            <h2>Login</h2>#}
+{#                            <h2>candidate-Profile</h2>#}
 {#                        </div>#}
 {#                        <div class="jp_tittle_breadcrumb_main_wrapper">#}
 {#                            <div class="jp_tittle_breadcrumb_wrapper">#}
 {#                                <ul>#}
 {#                                    <li><a href="#">Home</a> <i class="fa fa-angle-right"></i></li>#}
 {#                                    <li><a href="#">Pages</a> <i class="fa fa-angle-right"></i></li>#}
-{#                                    <li>Login</li>#}
+{#                                    <li>candidate-Profile</li>#}
 {#                                </ul>#}
 {#                            </div>#}
 {#                        </div>#}
@@ -869,62 +986,179 @@ you logout to prevent any un-authorized access to your account</p>
 {#        </div>#}
 {#    </div>#}
 {#    <!-- jp Tittle Wrapper End -->#}
+{#    <!-- jp profile Wrapper Start -->#}
+{#	<div class="jp_cp_profile_main_wrapper">#}
+{#		<div class="container">#}
+{#			<div class="row">#}
+{#				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">#}
+{#					<div class="jp_cp_left_side_wrapper">#}
+{#						<div class="jp_cp_left_pro_wallpaper">#}
+{#							<img src="images/content/cp1.png" alt="profile_img">#}
+{#							<h2>Farhan Shaikh</h2>#}
+{#							<p>UI/UX Designer in Dewas</p>#}
+{#							<ul>#}
+{#								<li><a href="#"><i class="fa fa-facebook"></i></a></li>#}
+{#								<li><a href="#"><i class="fa fa-twitter"></i></a></li>#}
+{#								<li><a href="#"><i class="fa fa-youtube-play"></i></a></li>#}
+{#							</ul>#}
+{#						</div>#}
+{#						<div class="jp_cp_rd_wrapper">#}
+{#							<ul>#}
+{#								<li><a href="#"><i class="fa fa-download"></i> &nbsp;Download Resume</a></li>#}
+{#								<li><a href="#"><i class="fa fa-phone"></i> &nbsp;Contact candidate</a></li>#}
+{#							</ul>#}
+{#						</div>#}
+{#					</div>#}
+{#                    <div class="jp_add_resume_wrapper jp_job_location_wrapper jp_cp_left_ad_res">#}
+{#                        <div class="jp_add_resume_img_overlay"></div>#}
+{#                        <div class="jp_add_resume_cont">#}
+{#                            <img src="images/content/resume_logo.png" alt="logo" />#}
+{#                            <h4>Get Best Matched Jobs On your Email. Add Resume NOW!</h4>#}
+{#                            <ul>#}
+{#                                <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;ADD RESUME</a></li>#}
+{#                            </ul>#}
+{#                        </div>#}
+{#                    </div>#}
+{#				</div>#}
+{#				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">#}
+{#					<div class="jp_cp_right_side_wrapper">#}
+{#						<div class="jp_cp_right_side_inner_wrapper">#}
+{#							<h2>PERSONAL DETAILS</h2>#}
+{#							<table>#}
+{#                                <tbody>#}
+{#                                    <tr>#}
+{#                                        <td class="td-w25">Full Name</td>#}
+{#                                        <td class="td-w10">:</td>#}
+{#                                        <td class="td-w65">Farhan Shaikh</td>#}
+{#                                    </tr>#}
+{#                                    <tr>#}
+{#                                        <td class="td-w25">Father's Name</td>#}
+{#                                        <td class="td-w10">:</td>#}
+{#                                        <td class="td-w65">------</td>#}
+{#                                    </tr>#}
+{#                                    <tr>#}
+{#                                        <td class="td-w25">Address</td>#}
+{#                                        <td class="td-w10">:</td>#}
+{#                                        <td class="td-w65">Street 110-B Kalani Bag, Dewas, M.P. INDIA</td>#}
+{#                                    </tr>#}
+{#                                    <tr>#}
+{#                                        <td class="td-w25">Zip Code</td>#}
+{#                                        <td class="td-w10">:</td>#}
+{#                                        <td class="td-w65">12345</td>#}
+{#                                    </tr>#}
+{#                                    <tr>#}
+{#                                        <td class="td-w25">Phone</td>#}
+{#                                        <td class="td-w10">:</td>#}
+{#                                        <td class="td-w65">+0 123456789 , +0 123456789</td>#}
+{#                                    </tr>#}
+{#                                    <tr>#}
+{#                                        <td class="td-w25">Email</td>#}
+{#                                        <td class="td-w10">:</td>#}
+{#                                        <td class="td-w65">support@example.com</td>#}
+{#                                    </tr>#}
+{#                                    <tr>#}
+{#                                        <td class="td-w25">Website</td>#}
+{#                                        <td class="td-w10">:</td>#}
+{#                                        <td class="td-w65">http://example.com</td>#}
+{#                                    </tr>#}
 {##}
-{#	<!-- jp login wrapper start -->#}
-{#	<div class="login_section">#}
-{#		<!-- login_form_wrapper -->#}
-{#		<div class="login_form_wrapper">#}
-{#			<div class="container">#}
-{#				<div class="row">#}
-{#					<div class="col-md-8 col-md-offset-2">#}
-{#						<!-- login_wrapper -->#}
-{#						<h1>LOGIN TO YOUR ACCOUNT</h1>#}
-{#						<div class="login_wrapper">#}
-{#							<div class="row">#}
-{#								<div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">#}
-{#									<a href="#" class="btn btn-primary"> <span>Login with Facebook</span> <i class="fa fa-facebook"></i> </a>#}
-{#								</div>#}
-{#								<div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">#}
-{#									<a href="#" class="btn btn-primary google-plus"> Login  with Google <i class="fa fa-google-plus"></i> </a>#}
-{#								</div>#}
-{#							</div>#}
-{#							<h2>or</h2>#}
-{#							<div class="formsix-pos">#}
-{#								<div class="form-group i-email">#}
-{#									<input type="email" class="form-control" required="" id="email2" placeholder="Username*">#}
-{#								</div>#}
-{#							</div>#}
-{#							<div class="formsix-e">#}
-{#								<div class="form-group i-password">#}
-{#									<input type="password" class="form-control" required="" id="password2" placeholder="Password *">#}
-{#								</div>#}
-{#							</div>#}
-{#							<div class="login_remember_box">#}
-{#								<label class="control control--checkbox">Remember me#}
-{#									<input type="checkbox">#}
-{#									<span class="control__indicator"></span>#}
-{#								</label>#}
-{#								<a href="#" class="forget_password">#}
-{#									Forgot Password#}
-{#								</a>#}
-{#							</div>#}
-{#							<div class="login_btn_wrapper">#}
-{#								<a href="#" class="btn btn-primary login_btn"> Login </a>#}
-{#							</div>#}
-{#							<div class="login_message">#}
-{#								<p>Don’t have an account ? <a href="#"> Register Now </a> </p>#}
+{#                                </tbody>#}
+{#                            </table>#}
+{#						</div>#}
+{#					</div>#}
+{#					<div class="row">#}
+{#						<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">#}
+{#							<div class="jp_cp_accor_heading_wrapper">#}
+{#								<h2>Education</h2>#}
+{#								<p>Proin gravida nibh vel velit quet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulpuate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt.</p>#}
 {#							</div>#}
 {#						</div>#}
-{#						<p>In case you are using a public/shared computer we recommend that#}
-{#you logout to prevent any un-authorized access to your account</p>#}
-{#						<!-- /.login_wrapper-->#}
+{#						<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">#}
+{#							<div class="accordion_wrapper abt_page_2_wrapper">#}
+{#								<div class="panel-group" id="accordion_threeLeft">#}
+{##}
+{##}
+{#									<!-- /.panel-default -->#}
+{#									<div class="panel panel-default">#}
+{#										<div class="panel-heading bell">#}
+{#											<h4 class="panel-title">#}
+{#												<a class="collapsed" data-toggle="collapse" data-parent="#accordion_threeLeft" href="#collapseTwentyLeftThree" aria-expanded="false">#}
+{#										DIPLOMA IN COMPUTER #}
+{#									  </a>#}
+{#											</h4>#}
+{#										</div>#}
+{#										<div id="collapseTwentyLeftThree" class="panel-collapse collapse" aria-expanded="false" role="tablist">#}
+{#											<div class="panel-body">#}
+{#												Praesent in nisl egestas mauris aliquam luctus. Ut auctor faucibus orci, nec semper purus ultrices idorbi nec lorem risus orbi vitae felis gravida Pellentesque id eros quis massa convallis feugiat eu quis urna.#}
+{#											</div>#}
+{#										</div>#}
+{#									</div>#}
+{#									<div class="panel panel-default">#}
+{#										<div class="panel-heading bell">#}
+{#											<h4 class="panel-title">#}
+{#												<a class="collapsed" data-toggle="collapse" data-parent="#accordion_threeLeft" href="#collapseTwentyLeftThree2" aria-expanded="false">#}
+{#										HIGHER SECONDRY EDUCATION #}
+{#									  </a>#}
+{#											</h4>#}
+{#										</div>#}
+{#										<div id="collapseTwentyLeftThree2" class="panel-collapse collapse" aria-expanded="false" role="tablist">#}
+{#											<div class="panel-body">#}
+{#												Praesent in nisl egestas mauris aliquam luctus. Ut auctor faucibus orci, nec semper purus ultrices idorbi nec lorem risus orbi vitae felis gravida Pellentesque id eros quis massa convallis feugiat eu quis urna.#}
+{#											</div>#}
+{#										</div>#}
+{#									</div>#}
+{#									<div class="panel panel-default">#}
+{#										<div class="panel-heading bell">#}
+{#											<h4 class="panel-title">#}
+{#												<a class="collapsed" data-toggle="collapse" data-parent="#accordion_threeLeft" href="#collapseTwentyLeftThree3" aria-expanded="false">#}
+{#										HIGH SCHOOL DEGREE#}
+{#									  </a>#}
+{#											</h4>#}
+{#										</div>#}
+{#										<div id="collapseTwentyLeftThree3" class="panel-collapse collapse" aria-expanded="false" role="tablist">#}
+{#											<div class="panel-body">#}
+{#												Praesent in nisl egestas mauris aliquam luctus. Ut auctor faucibus orci, nec semper purus ultrices idorbi nec lorem risus orbi vitae felis gravida Pellentesque id eros quis massa convallis feugiat eu quis urna.#}
+{#											</div>#}
+{#										</div>#}
+{#									</div>#}
+{#									<!-- /.panel-default -->#}
+{#								</div>#}
+{#								<!--end of /.panel-group-->#}
+{#							</div>#}
+{#						</div>#}
 {#					</div>#}
 {#				</div>#}
 {#			</div>#}
 {#		</div>#}
-{#		<!-- /.login_form_wrapper-->#}
 {#	</div>#}
-{#	<!-- jp login wrapper end -->#}
+{#    <!-- jp profile Wrapper End -->#}
+{#	<!-- jp downlord Wrapper Start -->#}
+{#    <div class="jp_downlord_main_wrapper">#}
+{#        <div class="jp_downlord_img_overlay"></div>#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hidden-sm hidden-xs">#}
+{#                    <div class="jp_down_mob_img_wrapper">#}
+{#                        <img src="images/content/mobail.png" alt="mobail_img" />#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">#}
+{#                    <div class="ss_download_wrapper_details">#}
+{#                        <h1><span>Download</span><br>Job Portal App Now!</h1>#}
+{#                        <p>Fast, Simple & Delightful. All it takes is 30 seconds to Download.</p>#}
+{#                        <a href="#" class="ss_appstore"><span><i class="fa fa-apple" aria-hidden="true"></i></span> App Store</a>#}
+{#                        <a href="#" class="ss_playstore"><span><i class="fa fa-android" aria-hidden="true"></i></span> Play Store</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 visible-sm visible-xs">#}
+{#                    <div class="jp_down_mob_img_wrapper">#}
+{#                        <img src="images/content/mobail.png" class="img-responsive" alt="mobail_img" />#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <!-- jp downlord Wrapper End -->#}
 {#	<!-- jp Newsletter Wrapper Start -->#}
 {#    <div class="jp_main_footer_img_wrapper">#}
 {#        <div class="jp_newsletter_img_overlay_wrapper"></div>#}
