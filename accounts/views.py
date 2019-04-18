@@ -1,5 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse_lazy
+from main_app.models import Perfil
+from django.views.generic import TemplateView, CreateView
+from accounts.forms import PerfilCreateForm
 
 
 class RedirectLoginView(TemplateView):
@@ -11,6 +15,18 @@ class RedirectLoginView(TemplateView):
         context['title'] = "Index"
         return context
 
-
-
+class PerfilCreate(CreateView):
+    template_name = 'register.html'
+    form_class = PerfilCreateForm
+    # def get(self, request, *args, **kwargs):
+    #     context = {'form': PerfilCreateForm()}
+    #     return render(request, 'register.html', context)
+    #
+    # def post(self, request, *args, **kwargs):
+    #     form = PerfilCreateForm(request.POST)
+    #     if form.is_valid():
+    #         book = form.save()
+    #         book.save()
+    #         return HttpResponseRedirect(reverse_lazy('perfil:profile', args=[book.id]))
+    #     return render(request, 'register.html', {'form': form})
 

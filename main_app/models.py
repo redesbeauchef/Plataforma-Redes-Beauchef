@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, User
 
 
@@ -33,6 +34,9 @@ class Perfil(models.Model):
     ultima_conex = models.DateTimeField(auto_now=True)
     spam = models.BooleanField()
     eula = models.BooleanField()
+
+    def get_absolute_url(self):
+        return reverse('perfiles:perfil', args=[self.id])
 
 class Empresa(models.Model):
     privado = models.BooleanField()
