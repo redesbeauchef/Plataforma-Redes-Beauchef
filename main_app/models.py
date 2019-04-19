@@ -20,9 +20,8 @@ class Perfil(models.Model):
         verbose_name_plural = 'Perfiles'
 
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    egresados = models.BooleanField()
+    egresado = models.BooleanField()
     rut = models.CharField(max_length=20)
-    email = models.CharField(max_length=500)
     carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE)
     empleo = models.ForeignKey(Empleo, on_delete=models.CASCADE)
     cv = models.FileField(upload_to='cv/', null=False)
@@ -34,9 +33,6 @@ class Perfil(models.Model):
     ultima_conex = models.DateTimeField(auto_now=True)
     spam = models.BooleanField()
     eula = models.BooleanField()
-
-    def get_absolute_url(self):
-        return reverse('perfiles:perfil', args=[self.id])
 
 class Empresa(models.Model):
     privado = models.BooleanField()
