@@ -47,29 +47,33 @@
                                     <div class="jp_regiter_top_heading">
                                         <p>Todos los campos son obligatorios </p>
                                     </div>
-                                    <form action="{% url 'perfilcreate' %}" method="post" name="estudianteform">
+                                    <form action="{% url 'register' %}" method="post" name="estudianteform">
                                         {% csrf_token %}
                                         <div class="row">
 
                                             <!--Form Group-->
                                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" name="first_name" placeholder="Nombre" required>
+                                                <input type="text" name="first_name"
+                                                       value="{{ first_name|default_if_none:'' }}" placeholder="Nombre"
+                                                       required>
                                             </div>
                                             <!--Form Group-->
                                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" name="last_name" value=""
+                                                <input type="text" name="last_name"
+                                                       value="{{ last_name|default_if_none:'' }}"
                                                        placeholder="Apellido">
                                             </div>
                                             <!--Form Group-->
                                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" name="rut" value=""
+                                                <input type="text" name="rut" value="{{ rut|default_if_none:'' }}"
                                                        placeholder="Rut">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <!--Form Group-->
                                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                                <input type="email" name="email" value="" placeholder="Email">
+                                                <input type="email" name="email" value="{{ email|default_if_none:'' }}"
+                                                       placeholder="Email">
                                             </div>
                                             <!--Form Group-->
                                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
@@ -89,28 +93,50 @@
                                             <!--Form Group-->
                                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                                 <select name="carrera">
-                                                    <option value="" disabled selected>Carrera</option>
-                                                    {% for carrera in carreras %}
-                                                        <option value="{{ carrera }}">{{ carrera }}</option>
+                                                    <option value="" disabled
+                                                            {% if carrera == '' %}
+                                                            selected
+                                                            {% endif %}>
+                                                        Carrera
+                                                    </option>
+                                                    {% for carrera_val in carreras %}
+                                                        <option value="{{ carrera_val }}"
+                                                                {% if carrera == carrera_val %}
+                                                                selected
+                                                                {% endif %}>
+                                                            {{ carrera_val }}
+                                                        </option>
                                                     {% endfor %}
                                                 </select>
                                             </div>
                                             <!--Form Group-->
                                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                                 <select name="empleo">
-                                                    <option value="" disabled selected>Tipo de Empleo Buscado</option>
-                                                    {% for empleo in empleos %}
-                                                        <option value="{{ empleo }}">{{ empleo }}</option>
+                                                    <option value="" disabled
+                                                            {% if empleo == '' %}
+                                                            selected
+                                                            {% endif %}>
+                                                        Tipo de Empleo Buscado
+                                                    </option>
+                                                    {% for empleo_val in empleos %}
+                                                        <option value="{{ empleo_val }}"
+                                                                {% if carrera == carrera_val %}
+                                                                selected
+                                                                {% endif %}>
+                                                            {{ empleo_val }}
+                                                        </option>
                                                     {% endfor %}
                                                 </select>
                                             </div>
                                             <!--Form Group-->
                                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                                <input type="number" name="ano-ingreso" value="" placeholder="2010">
+                                                <input type="number" name="ano-ingreso"
+                                                       value="{{ ano_ingreso|default_if_none:'' }}" placeholder="2010">
                                             </div>
                                             <!--Form Group-->
                                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                                <input type="number" name="ano-egreso" value="" placeholder="2015">
+                                                <input type="number" name="ano-egreso"
+                                                       value="{{ ano_egreso|default_if_none:'' }}" placeholder="2015">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -118,7 +144,7 @@
                                             <div class="form-group col-md-12">
                                                 <label for="perfil-pro">Perfil Profesional</label>
                                                 <textarea name="perfil-pro" id="perfil-pro" rows="4"
-                                                          style="height: auto !important;"></textarea>
+                                                          style="height: auto !important;">{{ perfil_pro|default_if_none:'' }}</textarea>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -137,7 +163,21 @@
                                             <!--Form Group-->
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                 <div class="check-box text-center">
-                                                    <input type="checkbox" name="spam" id="spam">
+                                                    <input type="checkbox" name="egresado" id="egresado"
+                                                            {% if egresado %}
+                                                                checked
+                                                            {% endif %}>
+                                                    &ensp;
+                                                    <label for="egresado">Soy Egresado/a</label>
+                                                </div>
+                                            </div>
+                                            <!--Form Group-->
+                                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="check-box text-center">
+                                                    <input type="checkbox" name="spam" id="spam"
+                                                            {% if spam %}
+                                                                checked
+                                                            {% endif %}>
                                                     &ensp;
                                                     <label for="spam">Deseo recibir SPAM</label>
                                                 </div>
@@ -145,7 +185,10 @@
                                             <!--Form Group-->
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                 <div class="check-box text-center">
-                                                    <input type="checkbox" name="eula" id="eula">
+                                                    <input type="checkbox" name="eula" id="eula"
+                                                            {% if eula %}
+                                                                checked
+                                                            {% endif %}>
                                                     &ensp;
                                                     <label for="eula">He leído y estoy de acuerdo con los <a href="#"
                                                                                                              class="check_box_anchr">Términos

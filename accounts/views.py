@@ -19,15 +19,13 @@ class RedirectLoginView(TemplateView):
 class RegisterForm(TemplateView):
     template_name = 'register.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['carreras'] = Carrera.objects.all().order_by('plan').values_list('plan', flat=True)
-        context['empleos'] = Empleo.objects.all().values_list('tipo', flat=True)
-        return context
-
-
-class PerfilCreate(View):
-    def post(self, request, *args, **kwargs):
+    def validate(self, request):
+        """
+        Valida que el formulario haya sido llenado correctamente
+        :param request: La request recibida
+        :return: Tupla cuyo primer valor es un booleano que indica si el formulario es valido y cuyo segundo valor
+        contiene los datos ingresados al formulario
+        """
         email = request.POST['email']
         username = request.POST['confirm-email']
         first_name = request.POST['first_name']
@@ -42,6 +40,7 @@ class PerfilCreate(View):
         perfil_pro = request.POST['perfil-pro']
         cv = request.POST['cv']
         foto_perfil = request.POST['foto-perfil']
+        egresado = request.POST.get('egresado', '') == 'on'
         spam = request.POST.get('spam', '') == 'on'
         eula = request.POST.get('eula', '') == 'on'
 
@@ -64,6 +63,9 @@ class PerfilCreate(View):
             warnings = True
         if password == "":
             messages.warning(request, 'Por favor, ingrese una contraseña.')
+            warnings = True
+        if len(password) < 6:
+            messages.warning(request, 'La contraseña debe tener al menos 6 caracteres.')
             warnings = True
         if password != confirm_password:
             messages.warning(request, 'Las contraseñas no coinciden.')
@@ -89,19 +91,63 @@ class PerfilCreate(View):
         if foto_perfil == "":
             messages.warning(request, 'Por favor, agregue una foto de perfil.')
             warnings = True
+        if not eula:
+            messages.warning(request, 'Para continuar debe aceptar los Términos y Condiciones.')
+            warnings = True
         if User.objects.filter(email=email).exists():
             messages.warning(request, 'Ya existe una cuenta con ese correo.')
             warnings = True
         if Perfil.objects.filter(rut=rut).exists():
             messages.warning(request, 'Ya existe una cuenta con ese rut')
             warnings = True
+
+        datos = {
+            'first_name': first_name,
+            'last_name': last_name,
+            'rut': rut,
+            'email': email,
+            'password': password,
+            'carrera': carrera,
+            'empleo': empleo,
+            'ano_ingreso': ano_ingreso,
+            'ano_egreso': ano_egreso,
+            'perfil_pro': perfil_pro,
+            'cv': cv,
+            'foto_perfil': foto_perfil,
+            'egresado': egresado,
+            'spam': spam,
+            'eula': eula
+        }
+
         if warnings:
-            return redirect('register')
+            return False, datos
 
-        # user = User.objects.create_user(first_name=first_name, email=email, password=password, rut=rut)
-        # login(request, user)
-        # messages.success(request, 'Bienvenid@, ' + user.first_name + ' ya puedes comenzar a hacer reservas :)')
+        return True, datos
 
-        # user = User(username=, password=, email=, first_name=, last_name=)
-        # print(user)
-        return redirect('profile')
+    def post(self, request, *args, **kwargs):
+        valid, datos = self.validate(request)
+
+        if valid:
+            user = User(username=datos['email'], email=datos['email'], first_name=datos['first_name'],
+                        last_name=datos['last_name'], password=datos['password'])
+            user.save()
+            carrera = Carrera.objects.get(plan=datos['carrera'])
+            empleo = Empleo.objects.get(tipo=datos['empleo'])
+            perfil = Perfil(usuario=user, rut=datos['rut'], carrera=carrera, empleo=empleo,
+                            ano_ingreso=datos['ano_ingreso'], ano_egreso=datos['ano_egreso'],
+                            perfil_pro=datos['perfil_pro'], cv=datos['cv'], foto_perfil=datos['foto_perfil'],
+                            egresado=datos['egresado'], spam=datos['spam'], eula=datos['eula'])
+            perfil.save()
+            return redirect('profile')
+        else:
+            context = datos
+            del context['password']
+            context['carreras'] = Carrera.objects.all().order_by('plan').values_list('plan', flat=True)
+            context['empleos'] = Empleo.objects.all().values_list('tipo', flat=True)
+            return render(request, 'register.html', context)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['carreras'] = Carrera.objects.all().order_by('plan').values_list('plan', flat=True)
+        context['empleos'] = Empleo.objects.all().values_list('tipo', flat=True)
+        return context
