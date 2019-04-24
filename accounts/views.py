@@ -1,9 +1,9 @@
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse_lazy
 from main_app.models import User, Perfil, Carrera, Empleo
 from django.views.generic import View, TemplateView
-from accounts.forms import PerfilForm, UserForm
 from django.contrib import messages
 
 
@@ -14,7 +14,6 @@ class RedirectLoginView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['title'] = "Index"
         return context
-
 
 class RegisterForm(TemplateView):
     template_name = 'register.html'
@@ -80,7 +79,7 @@ class RegisterForm(TemplateView):
             messages.warning(request, 'Por favor, indique su año de ingreso a la universidad.')
             warnings = True
         if ano_egreso == "":
-            messages.warning(request, 'Por favor, indique el año esperado de su egreso.')
+            messages.warning(request, 'Por favor, indique el año de su egreso (esperado si aún no ha egresado).')
             warnings = True
         if perfil_pro == "":
             messages.warning(request, 'Por favor, escriba su perfil profesional.')
@@ -127,10 +126,15 @@ class RegisterForm(TemplateView):
     def post(self, request, *args, **kwargs):
         valid, datos = self.validate(request)
 
-        if valid:
-            user = User(username=datos['email'], email=datos['email'], first_name=datos['first_name'],
-                        last_name=datos['last_name'], password=datos['password'])
+        if valid: # si es valido se crean un usuario y un perfil asociado
+
+            # usuario
+            user = User.objects.create_user(datos['email'], datos['email'], datos['password'])
+            user.first_name = datos['first_name']
+            user.last_name = datos['last_name']
             user.save()
+
+            # perfil
             carrera = Carrera.objects.get(plan=datos['carrera'])
             empleo = Empleo.objects.get(tipo=datos['empleo'])
             perfil = Perfil(usuario=user, rut=datos['rut'], carrera=carrera, empleo=empleo,
@@ -138,6 +142,9 @@ class RegisterForm(TemplateView):
                             perfil_pro=datos['perfil_pro'], cv=datos['cv'], foto_perfil=datos['foto_perfil'],
                             egresado=datos['egresado'], spam=datos['spam'], eula=datos['eula'])
             perfil.save()
+
+            user = authenticate(username=datos['email'], password=datos['password'])
+            login(self.request, user)
             return redirect('profile')
         else:
             context = datos

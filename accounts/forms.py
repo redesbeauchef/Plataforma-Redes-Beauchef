@@ -1,13 +1,10 @@
 from django import forms
-from main_app.models import Perfil, User
+from django.contrib.auth.forms import AuthenticationForm
 
-
-class UserForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ['first_name', 'last_name', 'email', 'password']
-
-class PerfilForm(forms.ModelForm):
-    class Meta:
-        model = Perfil
-        exclude = ['usuario']
+class UserAuthenticationForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs['class'] = 'form-control'
+        self.fields['username'].widget.attrs['placeholder'] = 'Email'
+        self.fields['password'].widget.attrs['class'] = 'form-control'
+        self.fields['password'].widget.attrs['placeholder'] = 'Contraseña'

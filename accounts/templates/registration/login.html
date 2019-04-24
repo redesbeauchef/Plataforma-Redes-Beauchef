@@ -4,8 +4,8 @@
 
 {% block specific_css %}
 
-    <link rel="stylesheet" type="text/css" href="{% static "css/style_II.css" %}" />
-    <link rel="stylesheet" type="text/css" href="{% static "css/responsive2.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/style_II.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/responsive2.css" %}"/>
 
 {% endblock specific_css %}
 
@@ -14,53 +14,69 @@
 {% endblock header %}
 
 {% block content %}
-	<!-- jp login wrapper start -->
-	<div class="login_section">
-		<!-- login_form_wrapper -->
-		<div class="login_form_wrapper">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<!-- login_wrapper -->
-						<h1>INICIAR SESIÓN</h1>
-						<div class="login_wrapper">
-							<div class="formsix-pos">
-								<div class="form-group i-email">
-									<input type="email" class="form-control" required="" id="email2" placeholder="Email">
-								</div>
-							</div>
-							<div class="formsix-e">
-								<div class="form-group i-password">
-									<input type="password" class="form-control" required="" id="password2" placeholder="Contraseña">
-								</div>
-							</div>
-							<div class="login_remember_box">
-								<label class="control control--checkbox">Remember me
-									<input type="checkbox">
-									<span class="control__indicator"></span>
-								</label>
-								<a href="#" class="forget_password">
-									Forgot Password
-								</a>
-							</div>
-							<div class="login_btn_wrapper">
-								<a href="#" class="btn btn-primary login_btn"> Login </a>
-							</div>
-							<div class="login_message">
-								<p>Don’t have an account ? <a href="#"> Register Now </a> </p>
-							</div>
-						</div>
-						<p>In case you are using a public/shared computer we recommend that
-you logout to prevent any un-authorized access to your account</p>
-						<!-- /.login_wrapper-->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /.login_form_wrapper-->
-	</div>
-	<!-- jp login wrapper end -->
-	<!-- jp Newsletter Wrapper Start -->
+    {% if next %}
+        {% if user.is_authenticated %}
+            <p>Your account doesn't have access to this page. To proceed,
+                please login with an account that has access.</p>
+        {% else %}
+            <p>Please login to see this page.</p>
+        {% endif %}
+    {% endif %}
+    <!-- jp login wrapper start -->
+    <div class="login_section">
+        <!-- login_form_wrapper -->
+        <div class="container">
+            {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <!-- login_wrapper -->
+                    <h1>INICIAR SESIÓN</h1>
+                    <div class="login_wrapper">
+                        <form method="post" action="{% url 'login' %}">
+                            {% csrf_token %}
+                            <div class="formsix-pos">
+                                <div class="form-group i-email">
+                                    {{ form.username }}
+                                </div>
+                            </div>
+                            <div class="formsix-e">
+                                <div class="form-group i-password">
+                                    {{ form.password }}
+                                </div>
+                            </div>
+                            <div class="login_remember_box">
+                                <label class="control control--checkbox">Remember me
+                                    <input type="checkbox">
+                                    <span class="control__indicator"></span>
+                                </label>
+                                <a href="#" class="forget_password">
+                                    Forgot Password
+                                </a>
+                            </div>
+                            <input type="submit" value="login" style="display: none;" id="submit_input">
+                            <input type="hidden" name="next" value="{{ next }}">
+                            <div class="login_btn_wrapper">
+                                <a href="#" onclick="document.getElementById('submit_input').click()"
+                                   class="btn btn-primary login_btn"> Login </a>
+                            </div>
+                        </form>
+                        <div class="login_message">
+                            <p>Don’t have an account ? <a href="#"> Register Now </a></p>
+                        </div>
+                    </div>
+                    <p>In case you are using a public/shared computer we recommend that
+                        you logout to prevent any un-authorized access to your account</p>
+                    <!-- /.login_wrapper-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.login_form_wrapper-->
+    </div>
+    <!-- jp login wrapper end -->
+    <!-- jp Newsletter Wrapper Start -->
     <div class="jp_main_footer_img_wrapper">
         <div class="jp_newsletter_img_overlay_wrapper"></div>
         <div class="jp_newsletter_wrapper">
@@ -68,12 +84,14 @@ you logout to prevent any un-authorized access to your account</p>
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="jp_newsletter_text">
-                            <img src="{% static 'images/content/news_logo.png' %}" class="img-responsive" alt="news_logo" />
+                            <img src="{% static 'images/content/news_logo.png' %}" class="img-responsive"
+                                 alt="news_logo"/>
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                         <div class="jp_newsletter_field">
-                            <i class="fa fa-envelope-o"></i><input type="text" placeholder="Enter Your Email"><button type="submit">Submit</button>
+                            <i class="fa fa-envelope-o"></i><input type="text" placeholder="Enter Your Email">
+                            <button type="submit">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -96,7 +114,9 @@ you logout to prevent any un-authorized access to your account</p>
                             <div class="jp_footer_first_cont_wrapper">
                                 <div class="jp_footer_first_cont">
                                     <h2>Who We Are</h2>
-                                    <p>This is Photoshop's version of Lom Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum.<br><br> Proin akshay handge vel velit auctor aliquet. Aenean sollicitudin,</p>
+                                    <p>This is Photoshop's version of Lom Ipsum. Proin gravida nibh vel velit auctor
+                                        aliquet. Aenean sollicitudin, lorem quis bibendum.<br><br> Proin akshay handge
+                                        vel velit auctor aliquet. Aenean sollicitudin,</p>
                                     <ul>
                                         <li><i class="fa fa-plus-circle"></i> <a href="#">READ MORE</a></li>
                                     </ul>
@@ -108,13 +128,20 @@ you logout to prevent any un-authorized access to your account</p>
                                 <div class="jp_footer_candidate">
                                     <h2>For candidate</h2>
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Add a Resume</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> candidate Dashboard</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Past Applications</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Job Alerts</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Bookmarks</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> My Account</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Your Jobs</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Add a
+                                            Resume</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> candidate
+                                            Dashboard</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Past
+                                            Applications</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Job Alerts</a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>
+                                            Bookmarks</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> My Account</a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Your
+                                            Jobs</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -124,13 +151,20 @@ you logout to prevent any un-authorized access to your account</p>
                                 <div class="jp_footer_candidate">
                                     <h2>For Employers</h2>
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Browse candidates</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Employer Dashboard</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Add Job</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Job Page</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Job Packages</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Work Process</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> My Account</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Browse
+                                            candidates</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Employer
+                                            Dashboard</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Add Job</a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Job
+                                            Page</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Job
+                                            Packages</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Work
+                                            Process</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> My Account</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -140,13 +174,20 @@ you logout to prevent any un-authorized access to your account</p>
                                 <div class="jp_footer_candidate">
                                     <h2>Information</h2>
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> About Us</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Terms & Conditions</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Privacy Policy</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Careers with Us</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Sitemap</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Contact Us</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> FAQs</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> About
+                                            Us</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Terms &
+                                            Conditions</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Privacy
+                                            Policy</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Careers
+                                            with Us</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Sitemap</a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Contact Us</a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> FAQs</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

@@ -16,8 +16,13 @@
                 <div class="jp_top_header_right_wrapper">
                     <div class="jp_top_header_right_cont">
                         <ul>
-                            <li><a href="{% url 'register' %}"><i class="fa fa-user"></i>&nbsp; REGISTRARME</a></li>
-                            <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i>&nbsp; INICIAR SESIÓN</a></li>
+                            {% if not user.is_authenticated %}
+                                <li><a href="{% url 'register' %}"><i class="fa fa-user"></i>&nbsp; REGISTRAR</a></li>
+                                <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i>&nbsp; ACCEDER</a></li>
+                            {% else %}
+                                <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i>&nbsp; MI PERFIL</a></li>
+                                <li><a href="{% url 'logout' %}"><i class="fa fa-sign-in"></i>&nbsp; SALIR</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                     <div class="jp_top_header_right__social_cont">
