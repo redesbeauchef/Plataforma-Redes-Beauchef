@@ -15,6 +15,7 @@ class RedirectLoginView(TemplateView):
         context['title'] = "Index"
         return context
 
+
 class RegisterForm(TemplateView):
     template_name = 'register.html'
 
@@ -126,7 +127,8 @@ class RegisterForm(TemplateView):
     def post(self, request, *args, **kwargs):
         valid, datos = self.validate(request)
 
-        if valid: # si es valido se crean un usuario y un perfil asociado
+        # si es valido se crean un usuario y un perfil asociado, y se inicia sesion
+        if valid:
 
             # usuario
             user = User.objects.create_user(datos['email'], datos['email'], datos['password'])
@@ -146,6 +148,9 @@ class RegisterForm(TemplateView):
             user = authenticate(username=datos['email'], password=datos['password'])
             login(self.request, user)
             return redirect('profile')
+
+        # si no se guardan los datos ingresados para que el usuario no tenga que ponerlos de nuevo y se vuelve a la
+        # pagina de registro, donde se informan los problemas
         else:
             context = datos
             del context['password']
