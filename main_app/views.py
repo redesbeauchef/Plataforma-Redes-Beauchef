@@ -21,6 +21,15 @@ class AboutView(TemplateView):
         context['title'] = "Sobre nosotros"
         return context
 
+class FaqView(TemplateView):
+
+    template_name = "main_app/faq.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = "Preguntas frecuentes"
+        return context
+
 class Login(TemplateView):
 
     template_name = 'main_app/login.html'
