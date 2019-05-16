@@ -12,7 +12,7 @@ class RedirectLoginView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Index"
+        context['title'] = "Perfil"
         return context
 
 
@@ -38,8 +38,8 @@ class RegisterForm(TemplateView):
         ano_ingreso = request.POST['ano-ingreso']
         ano_egreso = request.POST['ano-egreso']
         perfil_pro = request.POST['perfil-pro']
-        cv = request.POST['cv']
-        foto_perfil = request.POST['foto-perfil']
+        cv = request.FILES['cv']
+        foto_perfil = request.FILES['foto-perfil']
         egresado = request.POST.get('egresado', '') == 'on'
         spam = request.POST.get('spam', '') == 'on'
         eula = request.POST.get('eula', '') == 'on'
@@ -70,10 +70,10 @@ class RegisterForm(TemplateView):
         if password != confirm_password:
             messages.warning(request, 'Las contraseñas no coinciden.')
             warnings = True
-        if carrera == None:
+        if carrera is None:
             messages.warning(request, 'Por favor, seleccione una carrera.')
             warnings = True
-        if empleo == None:
+        if empleo is None:
             messages.warning(request, 'Por favor, seleccione el tipo de empleo que busca.')
             warnings = True
         if ano_ingreso == "":

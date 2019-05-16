@@ -47,7 +47,8 @@
                                     <div class="jp_regiter_top_heading">
                                         <p>Todos los campos son obligatorios </p>
                                     </div>
-                                    <form action="{% url 'register' %}" method="post" name="estudianteform">
+                                    <form action="{% url 'register' %}" method="post" name="estudianteform"
+                                          enctype="multipart/form-data">
                                         {% csrf_token %}
                                         <div class="row">
 
@@ -131,12 +132,14 @@
                                             <!--Form Group-->
                                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                                 <input type="number" name="ano-ingreso"
-                                                       value="{{ ano_ingreso|default_if_none:'' }}" placeholder="2010">
+                                                       value="{{ ano_ingreso|default_if_none:'' }}"
+                                                       placeholder="Año de Ingreso">
                                             </div>
                                             <!--Form Group-->
                                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                                 <input type="number" name="ano-egreso"
-                                                       value="{{ ano_egreso|default_if_none:'' }}" placeholder="2015">
+                                                       value="{{ ano_egreso|default_if_none:'' }}"
+                                                       placeholder="Año de Egreso">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -165,7 +168,7 @@
                                                 <div class="check-box text-center">
                                                     <input type="checkbox" name="egresado" id="egresado"
                                                             {% if egresado %}
-                                                                checked
+                                                           checked
                                                             {% endif %}>
                                                     &ensp;
                                                     <label for="egresado">Soy Egresado/a</label>
@@ -176,7 +179,7 @@
                                                 <div class="check-box text-center">
                                                     <input type="checkbox" name="spam" id="spam"
                                                             {% if spam %}
-                                                                checked
+                                                           checked
                                                             {% endif %}>
                                                     &ensp;
                                                     <label for="spam">Deseo recibir SPAM</label>
@@ -187,7 +190,7 @@
                                                 <div class="check-box text-center">
                                                     <input type="checkbox" name="eula" id="eula"
                                                             {% if eula %}
-                                                                checked
+                                                           checked
                                                             {% endif %}>
                                                     &ensp;
                                                     <label for="eula">He leído y estoy de acuerdo con los <a href="#"
