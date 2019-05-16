@@ -27,7 +27,11 @@
         <!-- login_form_wrapper -->
         <div class="container">
             {% if form.errors %}
-                <p>Your username and password didn't match. Please try again.</p>
+                <div class="row">
+                    <div class="alert alert-warning">
+                        El email y la contraseña no coinciden.
+                    </div>
+                </div>
             {% endif %}
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
