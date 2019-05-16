@@ -103,5 +103,12 @@
     "fields": {
       "plan": "Magíster en Ciencias de la Ingeniería"
     }
+  },
+  {
+    "model": "main_app.empleo",
+    "pk": 1,
+    "fields": {
+      "tipo": "Práctica"
+    }
   }
 ]

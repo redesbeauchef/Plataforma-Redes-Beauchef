@@ -16,8 +16,13 @@
                 <div class="jp_top_header_right_wrapper">
                     <div class="jp_top_header_right_cont">
                         <ul>
-                            <li><a href="register.html"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
-                            <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>
+                            {% if not user.is_authenticated %}
+                                <li><a href="{% url 'register' %}"><i class="fa fa-user"></i>&nbsp; REGISTRAR</a></li>
+                                <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i>&nbsp; ACCEDER</a></li>
+                            {% else %}
+                                <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i>&nbsp; MI PERFIL</a></li>
+                                <li><a href="{% url 'logout' %}"><i class="fa fa-sign-in"></i>&nbsp; SALIR</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                     <div class="jp_top_header_right__social_cont">
@@ -127,7 +132,7 @@
                                                             <li><a href="company_listing.html">Company-Listing</a></li>
                                                             <li><a href="company_listing_single.html">Company-Single</a></li>
                                                             <li><a href="candidate_listing.html">candidate-Listing</a></li>
-                                                            <li><a href="candidate_profile.html">candidate-Profile</a></li>
+                                                            <li><a href="../../../accounts/templates/candidate_profile.html">candidate-Profile</a></li>
                                                             <!-- .has-children -->
 
                                                         </ul>

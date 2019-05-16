@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, User
 
 
@@ -12,6 +13,17 @@ class Carrera(models.Model):
 class Empleo(models.Model):
     tipo = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.tipo
+
+
+def user_cv_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/cv/user_<id>/<filename>
+    return 'cv/user_{0}/{1}'.format(instance.usuario.id, filename)
+
+def user_foto_perfil_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/cv/user_<id>/<filename>
+    return 'foto_perfil/user_{0}/{1}'.format(instance.usuario.id, filename)
 
 class Perfil(models.Model):
 
@@ -19,13 +31,12 @@ class Perfil(models.Model):
         verbose_name_plural = 'Perfiles'
 
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    egresados = models.BooleanField()
+    egresado = models.BooleanField()
     rut = models.CharField(max_length=20)
-    email = models.CharField(max_length=500)
     carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE)
     empleo = models.ForeignKey(Empleo, on_delete=models.CASCADE)
-    cv = models.FileField(upload_to='cv/', null=False)
-    foto_perfil = models.ImageField(upload_to='perfil/', null=False)
+    cv = models.FileField(upload_to=user_cv_path, null=False)
+    foto_perfil = models.ImageField(upload_to=user_foto_perfil_path, null=False)
     perfil_pro = models.TextField(max_length=500)
     fecha_union = models.DateTimeField(auto_now_add=True)
     ano_ingreso = models.IntegerField()
@@ -64,9 +75,11 @@ class EspecialidadOferta(models.Model):
     carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE)
     oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE)
 
+
 class EmpleoOferta(models.Model):
     empleo = models.ForeignKey(Empleo, on_delete=models.CASCADE)
     oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE)
+
 
 class Entrevista(models.Model):
     hora_inicio = models.TimeField()
