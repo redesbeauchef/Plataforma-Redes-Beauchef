@@ -1,0 +1,183 @@
+{% extends "main_app/base.html" %}
+
+{% load static %}
+
+{% block specific_css %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/style_II.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/responsive2.css" %}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/requerimientos_table.css" %}"/>
+{% endblock specific_css %}
+
+{% block header %}
+    {% include "main_app/header2.html" %}
+{% endblock header %}
+
+{% block content %}
+<div class="jp_form_add_wrapper">
+    <div class="form" id="form-req">
+        <div class="container">
+            <form method="post" action="" onsubmit="">
+                <div class="table">
+                    <table>
+                        <tr class="unselectable">
+                            <th>Carrera:</th>
+                            <th id="header-oferta" hidden>Oferta:</th>
+                            <th id="header-cupos" hidden>Cupos:</th>
+                        </tr>
+
+                        <tr>
+                            <th id="carreraselect-1" onchange="addOferta(this.id)">
+                                <select id="carrera-1" style="width: 270px;">
+                                <option value="0" selected disabled>Seleccione una carrera...</option>
+                                <option value="1">Ingenieria Civil en Computación</option>
+                                <option value="2">Ingenieria Civil Industrial</option>
+                                <option value="3">Ingenieria Civil Electrica</option>
+                                <option value="4">Ingenieria Civil en Computación</option>
+                                </select>
+                            </th>
+
+                            <th id="ofertaselect-1" hidden onchange="addCupos(this.id)">
+                                <select id="oferta-1" name="oferta[]" multiple="multiple" style="width: 300px">
+                                    <option value="1">Practica 1</option>
+                                    <option value="2">Practica 2</option>
+                                    <option value="3">Practica 3</option>
+                                    <option value="4">Memoria</option>
+                                    <option value="5">Part-Time</option>
+                                </select>
+                            </th>
+
+                            <th id="cuposselect-1" hidden>
+                                <div class="card" style="float: left; width: 80px;">
+                                    <div class="card-header">Práctica 1</div>
+                                    <div class="card-body">
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="card" style="float: left; width: 80px;">
+                                    <div class="card-header">Práctica 2</div>
+                                    <div class="card-body">
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="card" style="float: left; width: 80px;">
+                                    <div class="card-header">Práctica 3</div>
+                                    <div class="card-body">
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="card" style="float: left; width: 80px;">
+                                    <div class="card-header">Memoria</div>
+                                    <div class="card-body">
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="card" style="float: left; width: 80px;">
+                                    <div class="card-header">Part-Time</div>
+                                    <div class="card-body">
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+{#                <div class="row">#}
+{#                    <div class="col-lg-3">Carrera:</div>#}
+{#                    <div class="col-lg-4">Oferta:</div>#}
+{#                    <div class="col-lg-3">Cupos:</div>#}
+{#                </div>#}
+{#                <div class="row" style="background-color: #d5d5d5;">#}
+{#                    <div class="col-lg-3">#}
+{#                        <select id="carrera" name="carrera">#}
+{#                            <option value="0" selected disabled>Seleccione una carrera...</option>#}
+{#                            <option value="1">Ingenieria Civil en Computación</option>#}
+{#                            <option value="2">Ingenieria Civil Industrial</option>#}
+{#                            <option value="3">Ingenieria Civil Electrica</option>#}
+{#                            <option value="4">Ingenieria Civil en Computación</option>#}
+{#                        </select>#}
+{#                    </div>#}
+{##}
+{#                    <div class="col-lg-4">#}
+{#                        <select id="oferta" name="oferta[]" multiple="multiple" style="width: 95%">#}
+{#                            <option value="1">Practica 1</option>#}
+{#                            <option value="2">Practica 2</option>#}
+{#                            <option value="3">Practica 3</option>#}
+{#                            <option value="4">Memoria</option>#}
+{#                            <option value="5">Part-Time</option>#}
+{#                        </select>#}
+{#                    </div>#}
+{##}
+{#                    <div class="col-lg-5">#}
+{#                        <div class="row" id="cupos">#}
+{##}
+{#                            <div class="col" style="width: 80.5px; float: left;" >#}
+{#                                <div class="card">#}
+{#                                    <div class="card-header">Práctica 1</div>#}
+{#                                    <div class="card-body">#}
+{#                                        <input type="number" class="form-control">#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{##}
+{#                            <div class="col" style="width: 80.5px; float: left;">#}
+{#                                <div class="card">#}
+{#                                    <div class="card-header">Práctica 2</div>#}
+{#                                    <div class="card-body">#}
+{#                                        <input type="number" class="form-control">#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{##}
+{#                            <div class="col" style="width: 80.5px; float: left;">#}
+{#                                <div class="card">#}
+{#                                    <div class="card-header">Práctica 3</div>#}
+{#                                    <div class="card-body">#}
+{#                                        <input type="number" class="form-control">#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{##}
+{#                            <div class="col" style="width: 80.5px; float: left;">#}
+{#                                <div class="card">#}
+{#                                    <div class="card-header">Memoria</div>#}
+{#                                    <div class="card-body">#}
+{#                                        <input type="number" class="form-control">#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{##}
+{#                            <div class="col" style="width: 80.5px; float: left;">#}
+{#                                <div class="card">#}
+{#                                    <div class="card-header">Part-Time</div>#}
+{#                                    <div class="card-body">#}
+{#                                        <input type="number" class="form-control">#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block specific_js %}
+
+    <script src="{% static "js/requerimientos_tabla.js" %}"></script>
+    <script src="{% static "js/jquery.magnific-popup.js" %}"></script>
+    <script src="{% static "js/custom_II.js" %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#carreraselect-1').select2();
+            $('#ofertaselect-1').select2();
+        });
+    </script>
+{% endblock specific_js %}
