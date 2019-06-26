@@ -19,70 +19,76 @@
         <div class="container">
             <form method="post" action="" onsubmit="">
                 <div class="table">
-                    <table>
-                        <tr class="unselectable">
+                    <table id="req-table">
+                        <tr class="unselectable" id="head">
                             <th>Carrera:</th>
                             <th id="header-oferta" hidden>Oferta:</th>
-                            <th id="header-cupos" hidden>Cupos:</th>
+{#                            <th id="header-cupos" hidden>Cupos:</th>#}
                         </tr>
 
-                        <tr>
-                            <th id="carreraselect-1" onchange="addOferta(this.id)">
-                                <select id="carrera-1" style="width: 270px;">
-                                <option value="0" selected disabled>Seleccione una carrera...</option>
-                                <option value="1">Ingenieria Civil en Computación</option>
-                                <option value="2">Ingenieria Civil Industrial</option>
-                                <option value="3">Ingenieria Civil Electrica</option>
-                                <option value="4">Ingenieria Civil en Computación</option>
-                                </select>
-                            </th>
+                        <tr id="fila-1">
+{#                            <div id="divcarrera-1">#}
+                                <th id="carreraselect-1">
+                                    <select id="carrera-1" style="width: 270px;">
+                                    <option value="0" selected disabled>Seleccione una carrera...</option>
+                                    <option value="1" onselect="addOferta('fila-1')">Ingenieria Civil en Computación</option>
+                                    <option value="2" onselect="addOferta('fila-1')">Ingenieria Civil Industrial</option>
+                                    <option value="3" onselect="addOferta('fila-1')">Ingenieria Civil Electrica</option>
+                                    <option value="4" onselect="addOferta('fila-1')">Ingenieria Civil en Computación</option>
+                                    </select>
+                                </th>
+{#                            </div>#}
 
-                            <th id="ofertaselect-1" hidden onchange="addCupos(this.id)">
-                                <select id="oferta-1" name="oferta[]" multiple="multiple" style="width: 300px">
-                                    <option value="1">Practica 1</option>
-                                    <option value="2">Practica 2</option>
-                                    <option value="3">Practica 3</option>
-                                    <option value="4">Memoria</option>
-                                    <option value="5">Part-Time</option>
-                                </select>
-                            </th>
-
-                            <th id="cuposselect-1" hidden>
-                                <div class="card" style="float: left; width: 80px;">
-                                    <div class="card-header">Práctica 1</div>
-                                    <div class="card-body">
-                                        <input type="number" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="card" style="float: left; width: 80px;">
-                                    <div class="card-header">Práctica 2</div>
-                                    <div class="card-body">
-                                        <input type="number" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="card" style="float: left; width: 80px;">
-                                    <div class="card-header">Práctica 3</div>
-                                    <div class="card-body">
-                                        <input type="number" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="card" style="float: left; width: 80px;">
-                                    <div class="card-header">Memoria</div>
-                                    <div class="card-body">
-                                        <input type="number" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="card" style="float: left; width: 80px;">
-                                    <div class="card-header">Part-Time</div>
-                                    <div class="card-body">
-                                        <input type="number" class="form-control">
-                                    </div>
-                                </div>
-                            </th>
+{#                            <div id="divoferta-1" class="hidDiv">#}
+{#                                <th id="ofertaselect-1" class="hidDiv"  onchange="addCupos(this.id)">#}
+{#                                    <select id="oferta-1" name="oferta[]" multiple="multiple" style="width: 300px">#}
+{#                                        <option value="1">Practica 1</option>#}
+{#                                        <option value="2">Practica 2</option>#}
+{#                                        <option value="3">Practica 3</option>#}
+{#                                        <option value="4">Memoria</option>#}
+{#                                        <option value="5">Part-Time</option>#}
+{#                                    </select>#}
+{#                                </th>#}
+{#                            </div>#}
+{##}
+{#                            <div id="divcupos-1" class="hidDiv">#}
+{#                                <th id="cuposselect-1" class="hidDiv">#}
+{#                                    <div class="card" style="float: left; width: 80px;">#}
+{#                                        <div class="card-header">Práctica 1</div>#}
+{#                                        <div class="card-body">#}
+{#                                            <input type="number" class="form-control">#}
+{#                                        </div>#}
+{#                                    </div>#}
+{##}
+{#                                    <div class="card" style="float: left; width: 80px;">#}
+{#                                        <div class="card-header">Práctica 2</div>#}
+{#                                        <div class="card-body">#}
+{#                                            <input type="number" class="form-control">#}
+{#                                        </div>#}
+{#                                    </div>#}
+{##}
+{#                                    <div class="card" style="float: left; width: 80px;">#}
+{#                                        <div class="card-header">Práctica 3</div>#}
+{#                                        <div class="card-body">#}
+{#                                            <input type="number" class="form-control">#}
+{#                                        </div>#}
+{#                                    </div>#}
+{##}
+{#                                    <div class="card" style="float: left; width: 80px;">#}
+{#                                        <div class="card-header">Memoria</div>#}
+{#                                        <div class="card-body">#}
+{#                                            <input type="number" class="form-control">#}
+{#                                        </div>#}
+{#                                    </div>#}
+{##}
+{#                                    <div class="card" style="float: left; width: 80px;">#}
+{#                                        <div class="card-header">Part-Time</div>#}
+{#                                        <div class="card-body">#}
+{#                                            <input type="number" class="form-control">#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </th>#}
+{#                            </div>#}
                         </tr>
                     </table>
                 </div>
@@ -174,10 +180,12 @@
     <script src="{% static "js/jquery.magnific-popup.js" %}"></script>
     <script src="{% static "js/custom_II.js" %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#carreraselect-1').select2();
-            $('#ofertaselect-1').select2();
-        });
-    </script>
+    <div id="scripts">
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#carrera-1').select2();
+                {#$('#oferta-1').select2();#}
+            });
+        </script>
+    </div>
 {% endblock specific_js %}
