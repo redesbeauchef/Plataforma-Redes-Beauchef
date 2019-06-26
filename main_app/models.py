@@ -92,3 +92,31 @@ class Entrevista(models.Model):
         (2, "Pendiente")
     )
     asistencia = models.IntegerField(choices=OPCIONES_ASISTENCIA)
+
+class Requerimientos(models.Model):
+    nombre = models.CharField(max_length=150)
+    descripcion = models.CharField(max_length=500)
+    representante = models.CharField(max_length=150)
+    celular = models.CharField(max_length=12)
+    email = models.CharField(max_length=150)
+    dia_asistencia = models.CharField(max_length=100)
+    tipo_stand = models.CharField(max_length=100)
+    stand_propio = models.BooleanField()
+    entrevistadores = models.IntegerField()
+    almuerzos_normales = models.IntegerField()
+    almuerzos_vegetarianos = models.IntegerField()
+
+
+class Stand(models.Model):
+    requerimiento = models.ForeignKey(Requerimientos, on_delete=models.CASCADE)
+    nombre = models.CharField(max_length=100)
+
+class CarrerasRequeridas(models.Model):
+    requerimiento = models.ForeignKey(Requerimientos, on_delete=models.CASCADE)
+    carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE)
+    oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE)
+
+class CantidadPorOferta(models.Model):
+    requeridas = models.ForeignKey(CarrerasRequeridas, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
+
