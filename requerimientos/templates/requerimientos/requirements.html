@@ -3,10 +3,54 @@
 {% load static %}
 
 {% block specific_css %}
-    <link rel="stylesheet" type="text/css" href="{% static "css/style_II.css" %}" />
-    <link rel="stylesheet" type="text/css" href="{% static "css/responsive2.css" %}" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/style_II.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/responsive2.css" %}"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/requerimientos_table.css" %}"/>
+    <style>
+        .select_carrera_row_wrapper, .card {
+            margin-bottom: 40px;
+        }
+
+        .card_heading {
+            background: #23c0e9;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 20px;
+            -webkit-border-top-left-radius: 10px;
+            -moz-border-top-left-radius: 10px;
+            border-top-left-radius: 10px;
+            -webkit-border-top-right-radius: 10px;
+            -moz-border-top-right-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card_heading h4 {
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .select_carrera_row_content, .card_body {
+            background: #ffffff;
+            border: 1px solid #e9e9e9;
+            border-bottom: 1px solid #23c0e9;
+            padding: 20px;
+            -webkit-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+
+        .select_carrera_row_wrapper:hover .select_carrera_row_content, .card:hover .card_body {
+            border-bottom: 1px solid #f36969;
+            -webkit-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+    </style>
 {% endblock specific_css %}
 
 {% block header %}
@@ -14,11 +58,83 @@
 {% endblock header %}
 
 {% block content %}
-<div class="jp_form_add_wrapper">
-    <div class="form" id="form-req">
-        <div class="container">
-            <form method="post" action="" onsubmit="">
-                <div class="table">
+    <div class="jp_form_add_wrapper">
+        <div class="form" id="form-req">
+            <div class="container">
+                <form method="post" action="" onsubmit="">
+                    <div class="select_carrera_row_wrapper">
+                        <div class="select_carrera_row_content">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="carrera">Carrera:</label>
+                                            <select class="carrera form-control" id="carrera" name="carrera"
+                                                    autocomplete="off">
+                                                <option value="" disabled selected>Seleccionar carrera</option>
+                                                {% for carrera_val in carreras %}
+                                                    <option value="{{ carrera_val.pk }}">
+                                                        {{ carrera_val }}
+                                                    </option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="oferta">Oferta:</label>
+                                            <select class="oferta form-control" id="oferta" name="oferta[]"
+                                                    multiple="multiple">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div id="cards_ofertas">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% comment %}<div class="row" style="background-color: #d5d5d5;">
+                        <div class="col-lg-3">
+                            <label for="carrera">Carrera:</label>
+                            <select class="carrera" id="carrera" name="carrera">
+                                <option value="1">Ingenieria Civil en Computación</option>
+                                <option value="2">Ingenieria Civil Industrial</option>
+                                <option value="3">Ingenieria Civil Electrica</option>
+                                <option value="4">Ingenieria Civil en Computación</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <label for="oferta">Oferta:</label>
+                            <select class="oferta" id="oferta" name="oferta[]" multiple="multiple">
+                                <option value="1">Practica 1</option>
+                                <option value="2">Practica 2</option>
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header">Práctica 1</div>
+                                        <div class="card-body">
+                                            <input type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header">Full Time</div>
+                                        <div class="card-body">
+                                            <input type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>{% endcomment %}
+                    {% comment %}<div class="table">
                     <table id="req-table">
                         <tr class="unselectable" id="head">
                             <th>Carrera:</th>
@@ -91,100 +207,195 @@
 {#                            </div>#}
                         </tr>
                     </table>
-                </div>
-{#                <div class="row">#}
-{#                    <div class="col-lg-3">Carrera:</div>#}
-{#                    <div class="col-lg-4">Oferta:</div>#}
-{#                    <div class="col-lg-3">Cupos:</div>#}
-{#                </div>#}
-{#                <div class="row" style="background-color: #d5d5d5;">#}
-{#                    <div class="col-lg-3">#}
-{#                        <select id="carrera" name="carrera">#}
-{#                            <option value="0" selected disabled>Seleccione una carrera...</option>#}
-{#                            <option value="1">Ingenieria Civil en Computación</option>#}
-{#                            <option value="2">Ingenieria Civil Industrial</option>#}
-{#                            <option value="3">Ingenieria Civil Electrica</option>#}
-{#                            <option value="4">Ingenieria Civil en Computación</option>#}
-{#                        </select>#}
-{#                    </div>#}
-{##}
-{#                    <div class="col-lg-4">#}
-{#                        <select id="oferta" name="oferta[]" multiple="multiple" style="width: 95%">#}
-{#                            <option value="1">Practica 1</option>#}
-{#                            <option value="2">Practica 2</option>#}
-{#                            <option value="3">Practica 3</option>#}
-{#                            <option value="4">Memoria</option>#}
-{#                            <option value="5">Part-Time</option>#}
-{#                        </select>#}
-{#                    </div>#}
-{##}
-{#                    <div class="col-lg-5">#}
-{#                        <div class="row" id="cupos">#}
-{##}
-{#                            <div class="col" style="width: 80.5px; float: left;" >#}
-{#                                <div class="card">#}
-{#                                    <div class="card-header">Práctica 1</div>#}
-{#                                    <div class="card-body">#}
-{#                                        <input type="number" class="form-control">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-{##}
-{#                            <div class="col" style="width: 80.5px; float: left;">#}
-{#                                <div class="card">#}
-{#                                    <div class="card-header">Práctica 2</div>#}
-{#                                    <div class="card-body">#}
-{#                                        <input type="number" class="form-control">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-{##}
-{#                            <div class="col" style="width: 80.5px; float: left;">#}
-{#                                <div class="card">#}
-{#                                    <div class="card-header">Práctica 3</div>#}
-{#                                    <div class="card-body">#}
-{#                                        <input type="number" class="form-control">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-{##}
-{#                            <div class="col" style="width: 80.5px; float: left;">#}
-{#                                <div class="card">#}
-{#                                    <div class="card-header">Memoria</div>#}
-{#                                    <div class="card-body">#}
-{#                                        <input type="number" class="form-control">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-{##}
-{#                            <div class="col" style="width: 80.5px; float: left;">#}
-{#                                <div class="card">#}
-{#                                    <div class="card-header">Part-Time</div>#}
-{#                                    <div class="card-body">#}
-{#                                        <input type="number" class="form-control">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-            </form>
+                </div>{% endcomment %}
+                    {#                <div class="row">#}
+                    {#                    <div class="col-lg-3">Carrera:</div>#}
+                    {#                    <div class="col-lg-4">Oferta:</div>#}
+                    {#                    <div class="col-lg-3">Cupos:</div>#}
+                    {#                </div>#}
+                    {#                <div class="row" style="background-color: #d5d5d5;">#}
+                    {#                    <div class="col-lg-3">#}
+                    {#                        <select id="carrera" name="carrera">#}
+                    {#                            <option value="0" selected disabled>Seleccione una carrera...</option>#}
+                    {#                            <option value="1">Ingenieria Civil en Computación</option>#}
+                    {#                            <option value="2">Ingenieria Civil Industrial</option>#}
+                    {#                            <option value="3">Ingenieria Civil Electrica</option>#}
+                    {#                            <option value="4">Ingenieria Civil en Computación</option>#}
+                    {#                        </select>#}
+                    {#                    </div>#}
+                    {##}
+                    {#                    <div class="col-lg-4">#}
+                    {#                        <select id="oferta" name="oferta[]" multiple="multiple" style="width: 95%">#}
+                    {#                            <option value="1">Practica 1</option>#}
+                    {#                            <option value="2">Practica 2</option>#}
+                    {#                            <option value="3">Practica 3</option>#}
+                    {#                            <option value="4">Memoria</option>#}
+                    {#                            <option value="5">Part-Time</option>#}
+                    {#                        </select>#}
+                    {#                    </div>#}
+                    {##}
+                    {#                    <div class="col-lg-5">#}
+                    {#                        <div class="row" id="cupos">#}
+                    {##}
+                    {#                            <div class="col" style="width: 80.5px; float: left;" >#}
+                    {#                                <div class="card">#}
+                    {#                                    <div class="card-header">Práctica 1</div>#}
+                    {#                                    <div class="card-body">#}
+                    {#                                        <input type="number" class="form-control">#}
+                    {#                                    </div>#}
+                    {#                                </div>#}
+                    {#                            </div>#}
+                    {##}
+                    {#                            <div class="col" style="width: 80.5px; float: left;">#}
+                    {#                                <div class="card">#}
+                    {#                                    <div class="card-header">Práctica 2</div>#}
+                    {#                                    <div class="card-body">#}
+                    {#                                        <input type="number" class="form-control">#}
+                    {#                                    </div>#}
+                    {#                                </div>#}
+                    {#                            </div>#}
+                    {##}
+                    {#                            <div class="col" style="width: 80.5px; float: left;">#}
+                    {#                                <div class="card">#}
+                    {#                                    <div class="card-header">Práctica 3</div>#}
+                    {#                                    <div class="card-body">#}
+                    {#                                        <input type="number" class="form-control">#}
+                    {#                                    </div>#}
+                    {#                                </div>#}
+                    {#                            </div>#}
+                    {##}
+                    {#                            <div class="col" style="width: 80.5px; float: left;">#}
+                    {#                                <div class="card">#}
+                    {#                                    <div class="card-header">Memoria</div>#}
+                    {#                                    <div class="card-body">#}
+                    {#                                        <input type="number" class="form-control">#}
+                    {#                                    </div>#}
+                    {#                                </div>#}
+                    {#                            </div>#}
+                    {##}
+                    {#                            <div class="col" style="width: 80.5px; float: left;">#}
+                    {#                                <div class="card">#}
+                    {#                                    <div class="card-header">Part-Time</div>#}
+                    {#                                    <div class="card-body">#}
+                    {#                                        <input type="number" class="form-control">#}
+                    {#                                    </div>#}
+                    {#                                </div>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
+                    {#                </div>#}
+                </form>
+            </div>
         </div>
     </div>
-</div>
 {% endblock content %}
 
 {% block specific_js %}
 
-    <script src="{% static "js/requerimientos_tabla.js" %}"></script>
     <script src="{% static "js/jquery.magnific-popup.js" %}"></script>
     <script src="{% static "js/custom_II.js" %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
     <div id="scripts">
         <script type="text/javascript">
             $(document).ready(function () {
-                $('#carrera-1').select2();
-                {#$('#oferta-1').select2();#}
+                $('select').select2();
+
+                let ofertas_por_carrera = [
+                    {
+                        plan: "Ninguno",
+                        ofertas: []
+                    },
+                    {
+                        plan: "Ingenería Civil en Computación",
+                        ofertas: ['Práctica 1', "Práctica 2", "Memoria", "Part-Time"]
+                    },
+                    {
+                        plan: "Ingeniería Civil Industrial",
+                        ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                    },
+                    {
+                        plan: "Ingeniería Civil en Tranportes",
+                        ofertas: ["Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                    },
+                    {
+                        plan: "Ingeniería Civil Hidráulica",
+                        ofertas: ["Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                    },
+                    {
+                        plan: "Ingeniería Civil en Estructuras",
+                        ofertas: ["Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                    },
+                    {
+                        plan: "Ingeniería Civil Química",
+                        ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                    },
+                    {
+                        plan: "Ingeniería Civil en Biotecnología",
+                        ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                    },
+                    {
+                        plan: "Ingenería Civil Mecánica",
+                        ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                    },
+                    {
+                        plan: "Ingeniería Civil Eléctrica",
+                        ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                    },
+                    {
+                        plan: "Ingeniería Civil Matemática",
+                        ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                    },
+                    {
+                        plan: "Ingeniería Civil de Minas",
+                        ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                    },
+                    {
+                        plan: "Geología",
+                        ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                    },
+                    {
+                        plan: "Magíster en Ciencias de Computación",
+                        ofertas: ["Memoria", "Part-Time"]
+                    },
+                    {
+                        plan: "Magíster en Tecnologías de Información",
+                        ofertas: ["Memoria", "Part-Time"]
+                    },
+                    {
+                        plan: "Magíster en Ciencias de la Ingeniería",
+                        ofertas: ["Memoria", "Part-Time"]
+                    },
+                ];
+
+                $('#carrera').on('change', function () {
+                    $('#oferta').empty();
+                    let ofertas = ofertas_por_carrera[$(this).val()].ofertas;
+                    $.each(ofertas, function (index, value) {
+                        $('#oferta').append($('<option/>', {
+                            value: value,
+                            text: value
+                        }));
+                    });
+                });
+
+                $('#oferta').on('change', function () {
+                    console.log($(this).val());
+                    $('#cards_ofertas').empty();
+                    $.each($(this).val(), function (index, value) {
+                        $('#cards_ofertas').append(
+                            '<div class="col-sm-3">\n' +
+                            '  <div class="card">\n' +
+                            '    <div class="card_heading">\n' +
+                            '      <h4>' + value + '</h4>\n' +
+                            '    </div>\n' +
+                            '    <div class="card_body">\n' +
+                            '       <input type="number" class="form-control">\n' +
+                            '    </div>\n' +
+                            '  </div>\n' +
+                            '</div>'
+                        );
+                    });
+                });
             });
         </script>
     </div>

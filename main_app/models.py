@@ -4,7 +4,7 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, User
 
 
 class Carrera(models.Model):
-    plan = models.CharField(max_length=150)
+    plan = models.CharField(max_length=150, unique=True)
 
     def __str__(self):
         return self.plan
