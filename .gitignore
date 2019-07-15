@@ -107,3 +107,6 @@ venv.bak/
 
 # PyCharm
 .idea/
+
+# Django static folder
+static/

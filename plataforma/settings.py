@@ -22,11 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'f9ky8et27zj$&aa6s@g&rly_w#sq^4!6kj*4c=pg1+$5fs($9*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+#ALLOWED_HOSTS = [os.environ.get('ALLLOW_HOST'), os.environ.get('IP_SERVER')]
+#print(type(os.environ.get('ALLOW_HOST')))
 # Application definition
+ALLOWED_HOSTS = ['www.redesbeauchef.cl', '178.128.153.212']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -75,9 +76,9 @@ WSGI_APPLICATION = 'plataforma.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'NAME': 'redesbeauchef',
+        'USER': 'redesbeauchef',
+        'PASSWORD': '6M#HadA%RbH$kTxv',
         'HOST': 'localhost',
         'PORT': 5432
     }
@@ -118,10 +119,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
