@@ -14,6 +14,156 @@
 {% endblock header %}
 
 {% block content %}
+    <section class="demo-page padding-bottom-2x">
+      <div class="container">
+
+          <h1 class="text-primary">Formulario de Requerimiento de Empresas</h1>
+          <hr>
+
+          <form enctype="multipart/form-data" method="post">
+
+
+            <input type='hidden' name='csrfmiddlewaretoken' value='8co4KfxBTR4wHky2jJpDQa4hqXAjMCT3' /> <div id="div_id_companieName" class="form-group"> <label for="id_companieName" class="control-label  requiredField">
+                            Nombre Compañia<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_companieName" maxlength="50" name="companieName" type="text" /> </div> </div> <div id="div_id_companieDescription" class="form-group"> <label for="id_companieDescription" class="control-label  requiredField">
+                            Breve Descripción<span class="asteriskField">*</span> </label> <div class="controls "> <textarea class="textarea form-control" cols="40" id="id_companieDescription" maxlength="5000" name="companieDescription" placeholder="Ingrese una breve descripción de su compañia para ser utilizada en nuestra página web y en la difusión (5000 caracteres máximo)" rows="10">
+            </textarea> </div> </div> <div id="div_id_representantename" class="form-group"> <label for="id_representantename" class="control-label  requiredField">
+                            Nombre de la persona de su empresa a cargo de la Feria<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_representantename" maxlength="30" name="representantename" type="text" /> </div> </div> <div id="div_id_representantecelular" class="form-group"> <label for="id_representantecelular" class="control-label  requiredField">
+                            Celular de la persona de su empresa a cargo de la Feria<span class="asteriskField">*</span> </label> <div class="controls "> <input class="numberinput form-control" id="id_representantecelular" name="representantecelular" type="number" /> </div> </div> <div id="div_id_representantecorreo" class="form-group"> <label for="id_representantecorreo" class="control-label  requiredField">
+                            Email de la persona de su empresa a cargo de la Feria<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_representantecorreo" maxlength="50" name="representantecorreo" type="text" /> </div> </div> <fieldset
+
+                > <legend>Día de Asistencia</legend> <div
+                class="col-md-4" > <div id="div_id_day_preference_1" class="form-group"> <label for="id_day_preference_1" class="control-label  requiredField">
+                            Día de Participación<span class="asteriskField">*</span> </label> <div class="controls "> <select class="select form-control" id="id_day_preference_1" name="day_preference_1">
+            <option value="" selected="selected">---------</option>
+            <option value="1">Lunes (08/10/2018)</option>
+            <option value="2">Martes (09/10/2018)</option>
+            <option value="3">Miercoles (10/10/2018)</option>
+            </select> </div> </div> </div>
+            <div
+                class="col-md-4"  style="display: none;"> <div id="div_id_day_preference_2" class="form-group"> <label for="id_day_preference_2" class="control-label ">
+                            Día Preferencia 2
+            </label> <div class="controls "> <select class="select form-control" id="id_day_preference_2" name="day_preference_2">
+                <option value="" selected="selected">---------</option>
+                <option value="1">Lunes (08/10/2018)</option>
+                <option value="2">Martes (09/10/2018)</option>
+                <option value="3">Miercoles (10/10/2018)</option>
+                </select> </div> </div> </div>
+                <div
+    class="col-md-4"  style="display: none;"> <div id="div_id_day_preference_3" class="form-group"> <label for="id_day_preference_3" class="control-label ">
+                Día Preferencia 3
+            </label> <div class="controls "> <select class="select form-control" id="id_day_preference_3" name="day_preference_3">
+                    <option value="" selected="selected">---------</option>
+                    <option value="1">Lunes (08/10/2018)</option>
+                    <option value="2">Martes (09/10/2018)</option>
+                    <option value="3">Miercoles (10/10/2018)</option>
+                    </select> </div> </div> </div> </fieldset>
+                    <fieldset
+
+    > <legend>Tipo de Stand</legend> <div
+    class="col-md-6" > <div id="div_id_stand_type" class="form-group"> <label for="id_stand_type" class="control-label  requiredField">
+                Tipo de Stand<span class="asteriskField">*</span> </label> <div class="controls "> <select class="select form-control" id="id_stand_type" name="stand_type">
+                    <option value="0">---------</option>
+                    <option value="1">Stand reducido (2m x 3m)</option>
+                    <option value="2">Stand simple (3m x 3m)</option>
+                    <option value="3">Stand especial 4 (4m x 3m)</option>
+                    <option value="4">Stand especial 5 (5m x 3m)</option>
+                    <option value="5">Stand doble (6m x 3m)</option>
+                    </select> </div> </div> </div>
+                    <div
+    class="col-md-6" > <div id="div_id_require_stand" class="form-group"> <label for="id_require_stand" class="control-label  requiredField">
+                ¿Utilizará Stand Propio o Stand Feria?<span class="asteriskField">*</span> </label> <div class="controls "> <select class="select form-control" id="id_require_stand" name="require_stand">
+<option value="0" selected="selected">---------</option>
+<option value="1">Stand Propio</option>
+<option value="2">Stand Feria</option>
+</select> </div> </div> </div> </fieldset>
+<fieldset><legend hidden id='producer_legend'>Datos de la productora que instalará su stand propio.</legend><div
+    class="col-md-4"  id="div_producerName" style="display: none;"> <div id="div_id_producerName" class="form-group"> <label for="id_producerName" class="control-label ">
+                Nombre productora
+            </label> <div class="controls "> <input class="textinput textInput form-control" id="id_producerName" maxlength="50" name="producerName" type="text" /> </div> </div> </div>
+<div
+    class="col-md-4"  id="div_producerSponsor" style="display: none;"> <div id="div_id_producerSponsor" class="form-group"> <label for="id_producerSponsor" class="control-label ">
+                Persona de contacto de productora
+            </label> <div class="controls "> <input class="textinput textInput form-control" id="id_producerSponsor" maxlength="50" name="producerSponsor" type="text" /> </div> </div> </div>
+<div
+    class="col-md-4"  id="div_producerPhone" style="display: none;"> <div id="div_id_producerPhone" class="form-group"> <label for="id_producerPhone" class="control-label ">
+                Telefono de persona de contacto
+            </label> <div class="controls "> <input class="numberinput form-control" id="id_producerPhone" name="producerPhone" type="number" /> </div> </div> </div>
+<div
+    class="col-md-4"  id="div_producerEmail" style="display: none;"> <div id="div_id_producerEmail" class="form-group"> <label for="id_producerEmail" class="control-label ">
+                Email de persona de contacto
+            </label> <div class="controls "> <input class="textinput textInput form-control" id="id_producerEmail" maxlength="50" name="producerEmail" type="text" /> </div> </div> </div>
+</fieldset><fieldset
+
+    > <legend>Preferencia de Stand en Layout</legend> <div><p> Para ver el layout de la Feria y los números de stand haga click en el siguiente botón: <button type='button' class='btn btn-primary btn-xs' data-toggle='modal' data-target='#Layout'>Ver Layout</button></p></div><div
+    class="col-md-4" > <div id="div_id_stand_preference_1" class="form-group"> <label for="id_stand_preference_1" class="control-label  requiredField">
+                Stand de Preferencia 1<span class="asteriskField">*</span> </label> <div class="controls "> <select class="select form-control" id="id_stand_preference_1" name="stand_preference_1">
+<option value="" selected="selected">---------</option>
+<option value="A">Stand A</option>
+<option value="B">Stand B</option>
+<option value="1">Stand 1</option>
+<option value="2">Stand 2</option>
+<option value="3">Stand 3</option>
+<option value="4">Stand 4</option>
+<option value="5">Stand 5</option>
+<option value="6">Stand 6</option>
+<option value="7">Stand 7</option>
+<option value="8">Stand 8</option>
+<option value="9">Stand 9</option>
+</select> </div> </div> </div>
+<div
+    class="col-md-4" > <div id="div_id_stand_preference_2" class="form-group"> <label for="id_stand_preference_2" class="control-label ">
+                Stand de Preferencia 2
+            </label> <div class="controls "> <select class="select form-control" id="id_stand_preference_2" name="stand_preference_2">
+<option value="" selected="selected">---------</option>
+<option value="A">Stand A</option>
+<option value="B">Stand B</option>
+<option value="1">Stand 1</option>
+<option value="2">Stand 2</option>
+<option value="3">Stand 3</option>
+<option value="4">Stand 4</option>
+<option value="5">Stand 5</option>
+<option value="6">Stand 6</option>
+<option value="7">Stand 7</option>
+<option value="8">Stand 8</option>
+<option value="9">Stand 9</option>
+</select> </div> </div> </div>
+<div
+    class="col-md-4" > <div id="div_id_stand_preference_3" class="form-group"> <label for="id_stand_preference_3" class="control-label ">
+                Stand de Preferencia 3
+            </label> <div class="controls "> <select class="select form-control" id="id_stand_preference_3" name="stand_preference_3">
+<option value="" selected="selected">---------</option>
+<option value="A">Stand A</option>
+<option value="B">Stand B</option>
+<option value="1">Stand 1</option>
+<option value="2">Stand 2</option>
+<option value="3">Stand 3</option>
+<option value="4">Stand 4</option>
+<option value="5">Stand 5</option>
+<option value="6">Stand 6</option>
+<option value="7">Stand 7</option>
+<option value="8">Stand 8</option>
+<option value="9">Stand 9</option>
+</select> </div> </div> </div> </fieldset>
+<fieldset
+
+    > <legend>Cantidad de Almuerzos</legend> <p>Según el porte de su stand, tiene una cantidad máxima de entrevistadores y, por lo tanto, de almuerzos. Si desea agregar algún almuerzo extra, éste tendrá un costo adicional de 1UF.</br></br> La cantidad máxima de entrevistadores son las siguientes: </br> Stand 2x3: 2 almuerzos </br> Stand 3x3: 2 almuerzos  </br> Stand 4x3: 3 almuerzos </br> Stand 5x3: 4 almuerzos </br> Stand 6x3: 4 almuerzos </br> </br> A continuación, por favor indicar la cantidad de entrevistadores y de almuerzos normales y almuerzos vegetarianos para su empresa.</p><div
+    class="col-md-8" > <div id="div_id_numeroentrevistadores" class="form-group"> <label for="id_numeroentrevistadores" class="control-label  requiredField">
+                Numero de Entrevistadores<span class="asteriskField">*</span> </label> <div class="controls "> <input class="numberinput form-control" id="id_numeroentrevistadores" name="numeroentrevistadores" type="number" value="1" /> </div> </div> </div>
+<div
+    class="col-md-6" > <div id="div_id_lunch_number" class="form-group"> <label for="id_lunch_number" class="control-label  requiredField">
+                Almuerzos Normales<span class="asteriskField">*</span> </label> <div class="controls "> <input class="numberinput form-control" id="id_lunch_number" name="lunch_number" type="number" value="0" /> </div> </div> </div>
+<div
+    class="col-md-6" > <div id="div_id_veggie_lunch_number" class="form-group"> <label for="id_veggie_lunch_number" class="control-label  requiredField">
+                Almuerzos Vegetarianos<span class="asteriskField">*</span> </label> <div class="controls "> <input class="numberinput form-control" id="id_veggie_lunch_number" name="veggie_lunch_number" type="number" value="0" /> </div> </div> </div> </fieldset>
+<fieldset
+
+    > <legend>Detalle de Entrevista</legend> <p>Las entrevistas por defecto son individuales de 15 minutos. </br> Usted puede decidir otra dinámica de entrevistas, variando el tiempo o modalidad, lo cual tendrá un efecto en la cantidad de participantes que entrevistará al final del día. </br> Para esto, seleccione 'Otra Modalidad' en tipo de entrevista y contacte con su ejecutivo para la determinación de ésta.<div
+    class="col-md-6" > <div id="div_id_tipoentrevista" class="form-group"> <label for="id_tipoentrevista" class="control-label  requiredField">
+                Tipo entrevistas<span class="asteriskField">*</span> </label> <div class="controls "> <select class="select form-control" id="id_tipoentrevista" name="tipoentrevista">
+<option value="" selected="selected">---------</option>
+<option value="1">Entrevistas Individuales cada 15 minutos</option>
+<option value="2">Otra Modalidad</option>
+</select> </div> </div> </div>
     <div class="contador_cupos">
         <h4>
             Quedan
@@ -31,7 +181,7 @@
     <div class="jp_form_add_wrapper">
         <div class="form" id="form-req">
             <div class="container">
-                <form method="post" action="" onsubmit="" id="form-carreras">
+                <form entype="multipart/form-data" method="post" action="" onsubmit="" id="form-carreras">
                     <div class="select_carrera_row_wrapper">
                         <a href="#" class="borrar_fila">
                             <i class="fa fa-times"></i>
