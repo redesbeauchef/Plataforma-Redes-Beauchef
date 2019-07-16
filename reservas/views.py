@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from main_app.models import *
 
 
 class OfferList(TemplateView):
@@ -9,4 +10,5 @@ class OfferList(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = "Ofertas"
+        context['offers'] = EmpleoOferta.objects.all()
         return context

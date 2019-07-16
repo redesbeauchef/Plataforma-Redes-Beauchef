@@ -55,6 +55,9 @@ class Empresa(models.Model):
     nombre = models.CharField(max_length=200)
     encuesta = models.URLField()
 
+    def __str__(self):
+        return self.nombre
+
 
 class ImagenEmpresa(models.Model):
     imagen = models.ImageField(upload_to='imagenes/', null=True)
