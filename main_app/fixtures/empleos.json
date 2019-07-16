@@ -1,0 +1,44 @@
+[
+  {
+    "model": "main_app.empleo",
+    "pk": 1,
+    "fields": {
+      "tipo": "Práctica I"
+    }
+  },
+  {
+    "model": "main_app.empleo",
+    "pk": 2,
+    "fields": {
+      "tipo": "Práctica II"
+    }
+  },
+  {
+    "model": "main_app.empleo",
+    "pk": 3,
+    "fields": {
+      "tipo": "Práctica III"
+    }
+  },
+  {
+    "model": "main_app.empleo",
+    "pk": 4,
+    "fields": {
+      "tipo": "Memoria"
+    }
+  },
+  {
+    "model": "main_app.empleo",
+    "pk": 5,
+    "fields": {
+      "tipo": "Part Time"
+    }
+  },
+  {
+    "model": "main_app.empleo",
+    "pk": 6,
+    "fields": {
+      "tipo": "Full Time"
+    }
+  }
+]
