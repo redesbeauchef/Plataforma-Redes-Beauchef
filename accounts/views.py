@@ -28,6 +28,7 @@ class RegisterForm(TemplateView):
         """
         email = request.POST['email']
         username = request.POST['confirm-email']
+        print(username)
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         password = request.POST['password']
