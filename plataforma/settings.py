@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'main_app',
     'accounts',
     'reservas'
+    'accounts',
+    'requerimientos'
 ]
 
 MIDDLEWARE = [

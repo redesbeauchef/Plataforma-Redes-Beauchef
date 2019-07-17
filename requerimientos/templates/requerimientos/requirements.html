@@ -1,0 +1,302 @@
+{% extends "main_app/base.html" %}
+
+{% load static %}
+
+{% block specific_css %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/style_II.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/responsive2.css" %}"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/requerimientos.css" %}"/>
+{% endblock specific_css %}
+
+{% block header %}
+    {% include "main_app/header2.html" %}
+{% endblock header %}
+
+{% block content %}
+    <div class="contador_cupos">
+        <h4>
+            Quedan
+            &nbsp;<span id="cupos_restantes">24</span>&nbsp;
+            cupos
+        </h4>
+    </div>
+    <div class="container">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="jp_listing_heading_wrapper">
+                <h2>Seleccionar carreras y ofertas correspondientes</h2>
+            </div>
+        </div>
+    </div>
+    <div class="jp_form_add_wrapper">
+        <div class="form" id="form-req">
+            <div class="container">
+                <form method="post" action="" onsubmit="" id="form-carreras">
+                    <div class="select_carrera_row_wrapper">
+                        <a href="#" class="borrar_fila">
+                            <i class="fa fa-times"></i>
+                            &nbsp;Eliminar
+                        </a>
+                        <div class="select_carrera_row_content">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="carrera_1">Carrera:</label>
+                                            <select class="carrera form-control" id="carrera_1" name="carrera_1"
+                                                    autocomplete="off">
+                                                <option value="" disabled selected>Seleccionar carrera</option>
+                                                {% for carrera_val in carreras %}
+                                                    <option value="{{ carrera_val.pk }}">
+                                                        {{ carrera_val }}
+                                                    </option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="oferta_1">Ofertas:</label>
+                                            <select class="oferta form-control" id="oferta_1" name="oferta_1[]"
+                                                    multiple="multiple">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div id="cards_ofertas_1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="jp_listing_right_bar_btn_wrapper">
+                    <div class="jp_listing_right_bar_btn">
+                        <ul style="margin-top: 0;">
+                            <li style="margin-top: 20px;">
+                                <a href="#" id="add_carrera_button">
+                                    <i class="fa fa-plus-circle"></i>
+                                    &nbsp;Agregar otra carrera
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="login_btn_wrapper register_btn_wrapper login_wrapper"
+                     style="background-color: #fff; border-top: 1px solid #e9e9e9; border-bottom: 0; margin-top: 20px;">
+                    <a href="#" class="btn btn-primary login_btn"> confirmar </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block specific_js %}
+
+    <script src="{% static "js/jquery.magnific-popup.js" %}"></script>
+    <script src="{% static "js/custom_II.js" %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+
+    {# el javascript esta aqui porque se usan tags de django #}
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // se aplica select2 a los selects existentes
+            $('select').select2();
+
+            // json con los tipos de trabajo por carrera
+            let ofertas_por_carrera = [
+                {
+                    plan: "Ninguno",
+                    ofertas: []
+                },
+                {
+                    plan: "Ingenería Civil en Computación",
+                    ofertas: ['Práctica 1', "Práctica 2", "Memoria", "Part-Time"]
+                },
+                {
+                    plan: "Ingeniería Civil Industrial",
+                    ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                },
+                {
+                    plan: "Ingeniería Civil en Tranportes",
+                    ofertas: ["Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                },
+                {
+                    plan: "Ingeniería Civil Hidráulica",
+                    ofertas: ["Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                },
+                {
+                    plan: "Ingeniería Civil en Estructuras",
+                    ofertas: ["Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                },
+                {
+                    plan: "Ingeniería Civil Química",
+                    ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                },
+                {
+                    plan: "Ingeniería Civil en Biotecnología",
+                    ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                },
+                {
+                    plan: "Ingenería Civil Mecánica",
+                    ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                },
+                {
+                    plan: "Ingeniería Civil Eléctrica",
+                    ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                },
+                {
+                    plan: "Ingeniería Civil Matemática",
+                    ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                },
+                {
+                    plan: "Ingeniería Civil de Minas",
+                    ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                },
+                {
+                    plan: "Geología",
+                    ofertas: ['Práctica 1', "Práctica 2", 'Práctica 3', "Memoria", "Part-Time"]
+                },
+                {
+                    plan: "Magíster en Ciencias de Computación",
+                    ofertas: ["Memoria", "Part-Time"]
+                },
+                {
+                    plan: "Magíster en Tecnologías de Información",
+                    ofertas: ["Memoria", "Part-Time"]
+                },
+                {
+                    plan: "Magíster en Ciencias de la Ingeniería",
+                    ofertas: ["Memoria", "Part-Time"]
+                },
+            ];
+
+            // funcion para configurar los eventos (es una funcion para poder
+            // aplicarla cada vez que se agregan nuevas filas)
+            let set_events = () => {
+
+                // cuando se selecciona una carrera se rellena el select de las
+                // ofertas y se eliminan las que ya se hayan seleccionado
+                $('.carrera').on('change', function () {
+                    let num_carrera = $(this).attr('id').split("_")[1]; // numero identificador
+                    let oferta = $('#oferta_' + num_carrera); // select de ofertas asociado
+                    let cards_ofertas = $('#cards_ofertas_' + num_carrera); // cards asociadas
+                    oferta.empty(); // se limpia el select de ofertas
+                    cards_ofertas.empty(); // se limpian las cards
+
+                    // lista de ofertas que puede tener la carrera
+                    let ofertas = ofertas_por_carrera[$(this).val()].ofertas;
+
+                    // por cada elemento en la lista se agrega la opcion correspondiente
+                    $.each(ofertas, function (index, value) {
+                        oferta.append($('<option/>', {
+                            value: value,
+                            text: value
+                        }));
+                    });
+                });
+
+                // cuando se seleccionan ofertas se agregan las cards
+                $('.oferta').on('change', function () {
+                    let num_oferta = $(this).attr('id').split("_")[1]; // numero identificador
+                    let cards_ofertas = $('#cards_ofertas_' + num_oferta); // cards asociadas
+                    cards_ofertas.empty(); // se limpian las cards
+
+                    // para cada oferta se agrega una carta
+                    $.each($(this).val(), function (index, value) {
+                        let val = value.replace(/[^a-zA-Z0-9]/g, "").toLowerCase(); // se limpia el nombre
+
+                        // se agrega la carta que corresponde
+                        cards_ofertas.append(
+                            '<div class="col-sm-3">\n' +
+                            '    <div class="card">\n' +
+                            '         <div class="card_heading">\n' +
+                            '             <h4>' + value + '</h4>\n' +
+                            '         </div>\n' +
+                            '         <div class="card_body">\n' +
+                            '             <input type="number" class="form-control" id="' + val + '_' + num_oferta +
+                            '" name="' + val + '_' + num_oferta + '" min="0">\n' +
+                            '         </div>\n' +
+                            '    </div>\n' +
+                            '</div>'
+                        );
+                    });
+
+                    // agregar evento para actualizar el contador
+                    $("input[type=number]").bind('keyup input', function () {
+                        let total = 0;
+                        $("input[type=number]").each(function () {
+                            let val = parseInt($(this).val());
+                            if (!val) {
+                                val = 0;
+                            }
+                            total += val;
+                        });
+                        let restantes = 24 - total;
+                        $('#cupos_restantes').text(restantes);
+                    });
+                });
+
+                // boton para eliminar la fila
+                $('.borrar_fila').on('click', function () {
+                    $(this).parent().remove();
+                    return false;
+                });
+            };
+
+            set_events();
+
+            let numero_de_filas = 1;
+
+            // cada vez que se presiona el boton se agrega una fila
+            $('#add_carrera_button').on('click', function () {
+                numero_de_filas++;
+                $('#form-carreras').append(
+                    '<div class="select_carrera_row_wrapper">\n' +
+                    '    <a href="#" class="borrar_fila">\n' +
+                    '        <i class="fa fa-times"></i>\n' +
+                    '        &nbsp;Eliminar\n' +
+                    '    </a>\n' +
+                    '    <div class="select_carrera_row_content">\n' +
+                    '        <div class="container-fluid">\n' +
+                    '            <div class="row">\n' +
+                    '                <div class="col-sm-4">\n' +
+                    '                    <div class="form-group">\n' +
+                    '                        <label for="carrera_' + numero_de_filas + '">Carrera:</label>\n' +
+                    '                        <select class="carrera form-control" id="carrera_' + numero_de_filas + '" name="carrera_' + numero_de_filas + '"\n' +
+                    '                                autocomplete="off">\n' +
+                    '                            <option value="" disabled selected>Seleccionar carrera</option>\n' +
+                    {% for carrera_val in carreras %}
+                        '                                <option value="{{ carrera_val.pk }}">\n'+
+                        '                                    {{ carrera_val }}\n'+
+                        '                                </option>\n'+
+                    {% endfor %}
+                    '                        </select>\n' +
+                    '                    </div>\n' +
+                    '                    <div class="form-group">\n' +
+                    '                        <label for="oferta_' + numero_de_filas + '">Oferta:</label>\n' +
+                    '                        <select class="oferta form-control" id="oferta_' + numero_de_filas + '" name="oferta_' + numero_de_filas + '[]"\n' +
+                    '                                multiple="multiple">\n' +
+                    '                        </select>\n' +
+                    '                    </div>\n' +
+                    '                </div>\n' +
+                    '                <div class="col-sm-8">\n' +
+                    '                    <div id="cards_ofertas_' + numero_de_filas + '">\n' +
+                    '                    </div>\n' +
+                    '                </div>\n' +
+                    '            </div>\n' +
+                    '        </div>\n' +
+                    '    </div>\n' +
+                    '</div>'
+                );
+
+                // es necesario volver a aplicar select2 y set_events para que se apliquen a la fila nueva
+                $('select').select2();
+                set_events();
+
+                return false;
+            });
+        });
+    </script>
+
+{% endblock specific_js %}
