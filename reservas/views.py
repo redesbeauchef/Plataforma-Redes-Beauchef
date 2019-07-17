@@ -11,4 +11,5 @@ class OfferList(TemplateView):
         context = super().get_context_data(**kwargs)
         context['title'] = "Ofertas"
         context['offers'] = EmpleoOferta.objects.all()
+        context['carreras'] = Carrera.objects.all()
         return context
