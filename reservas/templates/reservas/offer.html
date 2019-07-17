@@ -70,12 +70,13 @@
                             </ul>
                         </div>
                         <div class="jp_job_res jp_job_qua">
-                            <h2>Minimum qualifications</h2>
+                            <h2>Requisitos</h2>
                             <ul>
-                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; BA/BS degree in a technical field or equivalent practical experience.</li>
-                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; 2 years of relevant work experience in software development.</li>
-                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; Programming experience in C, C++ or Java.</li>
-                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; Experience with AJAX, HTML and CSS.</li>
+                                {{ offer.oferta.requisitos }}
+{#                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; BA/BS degree in a technical field or equivalent practical experience.</li>#}
+{#                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; 2 years of relevant work experience in software development.</li>#}
+{#                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; Programming experience in C, C++ or Java.</li>#}
+{#                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; Experience with AJAX, HTML and CSS.</li>#}
                             </ul>
                         </div>
                         <div class="jp_job_apply">
@@ -536,7 +537,7 @@
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
                                                 <li>Date Posted:</li>
-                                                <li>Octomber 02, 2017</li>
+                                                <li>{{ offer.oferta.fecha }}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -546,8 +547,8 @@
                                         </div>
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
-                                                <li>Location:</li>
-                                                <li>Los Angeles Califonia PO, 455001</li>
+                                                <li>Ubicación:</li>
+                                                <li>{{ offer.oferta.direccion }}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -557,8 +558,8 @@
                                         </div>
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
-                                                <li>Job Title:</li>
-                                                <li>HTML Developer</li>
+                                                <li>Cargo</li>
+                                                <li>{{ offer.oferta.cargo }}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -609,8 +610,8 @@
                                     <div class="jp_listing_right_bar_btn_wrapper">
                                         <div class="jp_listing_right_bar_btn">
                                             <ul>
-                                                <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;Apply With Facebook</a></li>
-                                                <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;Apply NOw!</a></li>
+{#                                                <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;Apply With Facebook</a></li>#}
+                                                <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;Postular </a></li>
                                             </ul>
                                         </div>
                                     </div>

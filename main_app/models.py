@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, User
+from datetime import datetime
+from django.utils import timezone
 
 
 class Carrera(models.Model):
@@ -70,6 +72,7 @@ class Oferta(models.Model):
     descripcion = models.TextField(max_length=500)
     requisitos =  models.TextField(max_length=500)
     remuneracion = models.CharField(max_length=200)
+    fecha = models.DateField(default=datetime.today())
     empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
 
 
@@ -86,6 +89,7 @@ class EmpleoOferta(models.Model):
 
 class Entrevista(models.Model):
     hora_inicio = models.TimeField()
+    fecha = models.DateField(default=datetime.today())
     entrevistados = models.ForeignKey(Perfil, on_delete=models.CASCADE)
     empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
     oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE)
