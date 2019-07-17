@@ -25,7 +25,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="jp_tittle_heading_wrapper">
                         <div class="jp_tittle_heading">
-                            <h2>HTML Developer (1-2 Yrs Exp.)</h2>
+                            <h2>{{ offer.oferta.cargo }}</h2>
                         </div>
                         <div class="jp_tittle_breadcrumb_main_wrapper">
                             <div class="jp_tittle_breadcrumb_wrapper">
@@ -33,7 +33,7 @@
                                     <li><a href="#">Home</a> <i class="fa fa-angle-right"></i></li>
                                     <li><a href="#">Jobs</a> <i class="fa fa-angle-right"></i></li>
                                     <li><a href="#">Developer</a> <i class="fa fa-angle-right"></i></li>
-                                    <li>HTML Developer (1-2 Yrs Exp.)</li>
+                                    <li>{{ offer.oferta.cargo }}</li>
                                 </ul>
                             </div>
                         </div>
@@ -51,9 +51,7 @@
                     <div class="jp_listing_left_sidebar_wrapper">
                         <div class="jp_job_des">
                             <h2>Job Description</h2>
-                            <p>Google is and always will be an engineering company. We hire people with a broad set of ical skills who are ready to tackle some of technology's greatest challenges and make an impact on millions, if not billions, of users.
-                                At Google, engineers not only revolutionize search, they routinely work on massive scalability and storage solutions, large-scale applications and rely new platforms for developers around the world. From AdWords to Chrome,
-                                Android to Ye, Social to Local, Google engineers are changing the world.</p>
+                            <p>{{ offer.oferta.descripcion }}</p>
                             <ul>
                                 <li><i class="fa fa-globe"></i>&nbsp;&nbsp; <a href="#">www.example.com</a></li>
                                 <li><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp; <a href="#">Download Info</a></li>
@@ -512,20 +510,21 @@
                                 </div>
                                 <div class="jp_jop_overview_img_wrapper">
                                     <div class="jp_jop_overview_img">
-                                        <img src="images/content/job_post_img1.jpg" alt="post_img" />
+                                        <img src="{{ offer.oferta.empresa.logo.url }}" alt="post_img" width="150"
+                                        height="150"/>
                                     </div>
                                 </div>
                                 <div class="jp_job_listing_single_post_right_cont">
                                     <div class="jp_job_listing_single_post_right_cont_wrapper">
-                                        <h4>HTML Developer (1 - 2 Yrs Exp.)</h4>
-                                        <p>Webstrot Technology Pvt. Ltd.</p>
+                                        <h4>{{ offer.oferta.cargo }}</h4>
+                                        <p>{{ offer.oferta.empresa.nombre }}</p>
                                     </div>
                                 </div>
                                 <div class="jp_job_post_right_overview_btn_wrapper">
                                     <div class="jp_job_post_right_overview_btn">
                                         <ul>
                                             <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                            <li><a href="#">Part Time</a></li>
+                                            <li><a href="#">{{ offer.empleo.tipo }}</a></li>
                                         </ul>
                                     </div>
                                 </div>
