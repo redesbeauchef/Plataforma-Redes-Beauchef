@@ -88,8 +88,8 @@ class EmpleoOferta(models.Model):
 
 
 class Entrevista(models.Model):
-    hora_inicio = models.TimeField()
-    fecha = models.DateField(default=datetime.today())
+    hora_inicio = models.DateTimeField(unique=True)
+    hora_cierre = models.DateTimeField(unique=True, default=timezone.now())
     entrevistados = models.ForeignKey(Perfil, on_delete=models.CASCADE)
     empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
     oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE)
