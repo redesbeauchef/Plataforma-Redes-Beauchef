@@ -47,6 +47,9 @@ class Perfil(models.Model):
     spam = models.BooleanField()
     eula = models.BooleanField()
 
+    def __str__(self):
+        return self.usuario.first_name +" "+ self.usuario.last_name
+
 class Empresa(models.Model):
     privado = models.BooleanField()
     logo = models.ImageField(upload_to='logos/', null=True)
@@ -88,8 +91,8 @@ class EmpleoOferta(models.Model):
 
 
 class Entrevista(models.Model):
-    hora_inicio = models.DateTimeField(unique=True)
-    hora_cierre = models.DateTimeField(unique=True, default=timezone.now())
+    hora_inicio = models.DateTimeField(unique=True, auto_now_add=True)
+    hora_cierre = models.DateTimeField(unique=True, auto_now=True)
     entrevistados = models.ForeignKey(Perfil, on_delete=models.CASCADE)
     empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
     oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE)
